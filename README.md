@@ -1,7 +1,6 @@
 # newton
 ## 环境准备
-Ubuntu Server 16.04 LTS x 3  
-
+Ubuntu Server 16.04 LTS  
 | 节点  | 地址规划 |
 | ---------- | -----------|
 | Controller Node   | 192.168.1.11   |
