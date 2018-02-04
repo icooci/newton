@@ -1,9 +1,9 @@
 # newton
-openstack newton
-环境准备
+## openstack newton
+### 环境准备
 Ubuntu Server 16.04 LTS x 3
 地址规划
-Controller Node   192.168.1.11
+Controller Node   192.168.1.11  
 Compute Node    192.168.1.21
 Block Storage Node    192.168.1.31
 Object Storage Node 1   192.168.1.41
