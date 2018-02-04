@@ -8,6 +8,8 @@ Compute Node    192.168.1.21
 Block Storage Node    192.168.1.31
 Object Storage Node 1   192.168.1.41
 Object Storage Node 1   192.168.1.42
+cat /var/lib/neutron/dhcp/8fda183f-4e8d-406e-88b1-bd629c7eb3b1/addn_hosts
+cat /var/lib/neutron/dhcp/8fda183f-4e8d-406e-88b1-bd629c7eb3b1/opts
 
 编辑网络配置
 ```
