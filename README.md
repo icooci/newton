@@ -10,7 +10,7 @@ Object Storage Node 1   192.168.1.41
 Object Storage Node 1   192.168.1.42
 
 网络配置
-
+vi /etc/network/interfaces
 ```
 auto ens3
 iface ens3 inet static
@@ -23,6 +23,7 @@ iface ens3 inet static
 ```
 
 网络名称解析
+vi /etc/hosts
 ```
 # controller
 192.168.1.11       controller
