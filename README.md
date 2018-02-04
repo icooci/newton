@@ -10,7 +10,7 @@ Object Storage Node 1   192.168.1.41
 Object Storage Node 1   192.168.1.42
 
 编辑网络配置
-···
+```
 auto ens3
 iface ens3 inet static
         address 192.168.1.11
@@ -19,10 +19,10 @@ iface ens3 inet static
         broadcast 192.168.1.255
         gateway 192.168.1.1
         dns-nameservers 192.168.1.1
-···
+```
 
 网络名称解析
-···
+```
 # controller
 192.168.1.11       controller
 
@@ -37,4 +37,4 @@ iface ens3 inet static
 
 # object2
 192.168.1.42       object2
-···
+```
