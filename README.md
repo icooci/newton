@@ -10,7 +10,8 @@ Object Storage Node 1   192.168.1.41
 Object Storage Node 1   192.168.1.42
 cat /var/lib/neutron/dhcp/8fda183f-4e8d-406e-88b1-bd629c7eb3b1/addn_hosts
 cat /var/lib/neutron/dhcp/8fda183f-4e8d-406e-88b1-bd629c7eb3b1/opts
-
+啊实打实的
+啊实打实的111
 编辑网络配置
 ```
 auto ens3
