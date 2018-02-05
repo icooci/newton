@@ -51,7 +51,7 @@ vi /etc/hosts
 > service chrony restart  
 
 **其他节点部署NTP服务**  
-> apt install chrony
+> apt install chrony  
 > vi /etc/chrony/chrony.conf
 ```diff
 - pool 2.debian.pool.ntp.org offline iburst
