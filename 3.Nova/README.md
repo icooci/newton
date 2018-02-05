@@ -13,14 +13,13 @@ GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'asd';
+exit;
 ```
 
 加载admin变量
-
 >. admin-openrc
 
 创建nova用户
-
 > openstack user create --domain default --password-prompt nova
 
 为nova用户分配admin角色
@@ -32,6 +31,7 @@ GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 
 创建nova服务API Endpoint
 > openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1/%\(tenant_id\)s
+
 > openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1/%\(tenant_id\)s
 > openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1/%\(tenant_id\)s
 
