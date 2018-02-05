@@ -1,5 +1,5 @@
 # Newton安装部署
-### 环境准备
+环境准备
 ------
 OS: Ubuntu Server 16.04 LTS  
 
