@@ -331,8 +331,8 @@ export OS_IMAGE_API_VERSION=2
 ```
 
 测试申请token
-> . admin-openrc 
-> openstack token issue
+> . admin-openrc  
+> openstack token issue  
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
@@ -345,4 +345,4 @@ export OS_IMAGE_API_VERSION=2
 | user_id    | 5c30414ba4f14019ba86e1b5a3985856                                                    |
 +------------+-------------------------------------------------------------------------------------+
 ```
-asdasd
+
