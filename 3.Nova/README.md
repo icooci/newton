@@ -35,4 +35,63 @@ exit;
 > openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1/%\(tenant_id\)s  
 > openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1/%\(tenant_id\)s
 
+> apt install nova-api nova-conductor nova-consoleauth nova-novncproxy nova-scheduler
 
+> vi /etc/nova/nova.conf  
+
+```bash
+[DEFAULT]
+dhcpbridge_flagfile=/etc/nova/nova.conf
+dhcpbridge=/usr/bin/nova-dhcpbridge
+# log-dir=/var/log/nova
+state_path=/var/lib/nova
+force_dhcp_release=True
+verbose=True
+ec2_private_dns_show_ip=True
+enabled_apis=osapi_compute,metadata
+transport_url = rabbit://openstack:asd@controller
+auth_strategy = keystone
+my_ip = 192.168.1.11
+use_neutron = True
+firewall_driver = nova.virt.firewall.NoopFirewallDriver
+
+
+[database]
+# connection=sqlite:////var/lib/nova/nova.sqlite
+connection = mysql+pymysql://nova:asd@controller/nova
+
+[api_database]
+# connection=sqlite:////var/lib/nova/nova.sqlite
+connection = mysql+pymysql://nova:asd@controller/nova_api
+
+[oslo_concurrency]
+# lock_path=/var/lock/nova
+lock_path = /var/lib/nova/tmp
+
+[libvirt]
+use_virtio_for_bridges=True
+
+[wsgi]
+api_paste_config=/etc/nova/api-paste.ini
+
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = asd
+
+[vnc]
+vncserver_listen = $my_ip
+vncserver_proxyclient_address = $my_ip
+
+[glance]
+api_servers = http://controller:9292
+
+```
+
+asdasd
