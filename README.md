@@ -193,9 +193,7 @@ Distribution = Ubuntu
 
 引导身份认证服务  
 
-> `asdasd`  
-
->```
+```bash
 keystone-manage bootstrap --bootstrap-password asd \
   --bootstrap-admin-url http://controller:35357/v3/ \
   --bootstrap-internal-url http://controller:35357/v3/ \
