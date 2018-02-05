@@ -42,7 +42,7 @@ vi /etc/hosts
 # object2
 192.168.1.42       object2
 ```
-控制节点部署NTP服务  
+**控制节点部署NTP服务**  
 > apt install chrony  
 > vi /etc/chrony/chrony.conf  
 ```diff
@@ -80,10 +80,10 @@ vi /etc/hosts
 
 > apt install python-openstackclient
 
-控制节点安装SQL
+**控制节点安装SQL**
 >apt install mariadb-server python-pymysql
 
-/etc/mysql/mariadb.conf.d/99-openstack.cnf
+> vi /etc/mysql/mariadb.conf.d/99-openstack.cnf
 ```
 [mysqld]
 bind-address = 192.168.1.11
@@ -94,6 +94,6 @@ max_connections = 4096
 collation-server = utf8_general_ci
 character-set-server = utf8
 ```
->service mysql restart
+> service mysql restart
 
->mysql_secure_installation
+> mysql_secure_installation
