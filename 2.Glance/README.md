@@ -109,11 +109,13 @@ flavor = keystone
 验证操作
 ---
 
+加载admin变量
 >. admin-openrc
 
+获取cirros镜像
 > wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 
-上传cirros镜像
+上传cirros镜像至glance
 ```
 openstack image create "cirros" \
   --file cirros-0.3.4-x86_64-disk.img \
@@ -122,6 +124,8 @@ openstack image create "cirros" \
 ```
 查询镜像列表
 > openstack image list
+
+服务器返回结果如下:
 ```
 +--------------------------------------+--------+--------+
 | ID                                   | Name   | Status |
