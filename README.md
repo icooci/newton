@@ -256,21 +256,21 @@ export OS_IDENTITY_API_VERSION=3
 
 验证一: 使用admin请求token  
 
-`openstack --os-auth-url http://controller:35357/v3 \
-  --os-project-domain-name Default --os-user-domain-name Default \
-  --os-project-name admin --os-username admin token issue`
+> openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name Default --os-user-domain-name Default --os-project-name admin --os-username admin token issue
   
 ```
-+------------+---------------------------------------------------------------------------------------------------------+
-| Field      | Value                                                                                                   |
-+------------+---------------------------------------------------------------------------------------------------------+
-| expires    | 2018-02-05 05:09:02+00:00                                                                               |
-| id         | gAAAAABad9je7UJpx28MNbCqIVFBxEsQ5IdIgDb_MSA8fWinrJkc1STO1hfkeA5QcwR5UsGaQwTU9ni2Hnby-                   |
-|            | e1ePFtwspOrfs5Q_wPfIDHcimJ-vpW5yyXuBNAtI07_3i10SYA5uEoJcX_nTK8mQO6FPgIhZ-C0P37ZXGNrTNsKzaEICiiHtJs      |
-| project_id | 504960eb27594515a5c52299e592bdb2                                                                        |
-| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                                                        |
-+------------+---------------------------------------------------------------------------------------------------------+
++------------+----------------------------------------------------------------------------+
+| Field      | Value                                                                      |
++------------+----------------------------------------------------------------------------+
+| expires    | 2018-02-05 05:11:35+00:00                                                  |
+| id         | gAAAAABad9l3eBC90O5-VRd6F1DfOHIuogjHYwtSay-                                |
+|            | Wt8ODdF1ZbooqU3NY80zTm5_54i8ZPT7ovKEJ2px-N5MG01nRvfj3knG7JZJdLmVSa0eiUKoRB |
+|            | _j1Qg0c53B4fS1XESrRU9JnIq6xt4iJ7NQzKeFM63RpsL0U5087iD5EXckWm8kiTbo         |
+| project_id | 504960eb27594515a5c52299e592bdb2                                           |
+| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                           |
++------------+----------------------------------------------------------------------------+
 ```
+
 
 验证二: 使用demo请求token  
 
