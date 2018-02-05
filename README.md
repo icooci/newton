@@ -243,3 +243,36 @@ export OS_IDENTITY_API_VERSION=3
 
 > openstack role add --project demo --user demo user  
 `本条命令无回显`
+
+关闭临时认证机制  
+
+> vi /etc/keystone/keystone-paste.ini
+
+分别从[pipeline:public_api], [pipeline:admin_api]和[pipeline:api_v3]部分删除admin_token_auth
+
+取消临时变量  
+
+unset OS_AUTH_URL OS_PASSWORD
+
+验证一: 使用admin请求token  
+
+openstack --os-auth-url http://controller:35357/v3 \
+  --os-project-domain-name Default --os-user-domain-name Default \
+  --os-project-name admin --os-username admin token issue
+
++------------+---------------------------------------------------------------------------------------------------------+
+| Field      | Value                                                                                                   |
++------------+---------------------------------------------------------------------------------------------------------+
+| expires    | 2018-02-05 05:09:02+00:00                                                                               |
+| id         | gAAAAABad9je7UJpx28MNbCqIVFBxEsQ5IdIgDb_MSA8fWinrJkc1STO1hfkeA5QcwR5UsGaQwTU9ni2Hnby-                   |
+|            | e1ePFtwspOrfs5Q_wPfIDHcimJ-vpW5yyXuBNAtI07_3i10SYA5uEoJcX_nTK8mQO6FPgIhZ-C0P37ZXGNrTNsKzaEICiiHtJs      |
+| project_id | 504960eb27594515a5c52299e592bdb2                                                                        |
+| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                                                        |
++------------+---------------------------------------------------------------------------------------------------------+
+
+验证二: 使用demo请求token  
+
+openstack --os-auth-url http://controller:5000/v3 \
+  --os-project-domain-name Default --os-user-domain-name Default \
+  --os-project-name demo --os-username demo token issue
+
