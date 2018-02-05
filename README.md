@@ -68,9 +68,13 @@ vi /etc/hosts
 > add-apt-repository cloud-archive:newton  
 [ENTER]
 
-更新软件包
+更新软件包  
+
 > apt-get update && apt-get dist-upgrade
 重启以应用新kernel  
+
 > reboot
+
 安装openstackclient  
+
 > apt install python-openstackclient
