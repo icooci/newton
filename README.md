@@ -242,4 +242,4 @@ export OS_IDENTITY_API_VERSION=3
 赋予demo用户user角色
 
 > openstack role add --project demo --user demo user  
-本条命令没有无回显
+`本条命令无回显`
