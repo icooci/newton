@@ -97,12 +97,12 @@ api_servers = http://controller:9292
 ```
 
 初始化nova数据库
-> nova-manage db sync
-> nova-manage api_db sync
+> nova-manage db sync  
+> nova-manage api_db sync  
 
 重启nova服务
-> service nova-api restart
-> service nova-consoleauth restart
-> service nova-scheduler restart
-> service nova-conductor restart
-# service nova-novncproxy restart
+> service nova-api restart  
+> service nova-consoleauth restart  
+> service nova-scheduler restart  
+> service nova-conductor restart  
+> service nova-novncproxy restart  
