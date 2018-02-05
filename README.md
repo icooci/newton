@@ -12,7 +12,7 @@ OS: Ubuntu Server 16.04 LTS
 | Object Storage Node 2 | object2 | 192.168.1.42 |
 
 网络配置  
-vi /etc/network/interfaces
+> vi /etc/network/interfaces  
 ```
 auto ens3
 iface ens3 inet static
