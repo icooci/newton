@@ -330,3 +330,19 @@ export OS_IDENTITY_API_VERSION=3
 export OS_IMAGE_API_VERSION=2
 ```
 
+测试申请token
+> . admin-openrc 
+> openstack token issue
+```
++------------+-------------------------------------------------------------------------------------+
+| Field      | Value                                                                               |
++------------+-------------------------------------------------------------------------------------+
+| expires    | 2018-02-05 05:52:33+00:00                                                           |
+| id         | gAAAAABad-MRnDoOXPyhHYENp7XauDPFCF4wxR_EjpIDN2Wc2veywDNsFx3tH1vNWH7hE14ti-bRLA23GoT |
+|            | zPyOzLvKpxxVoySGFKdIxrSSUQs05k0mbLwPt1RrpUCIXldALu80ZteznfKUyvm12pPyuJ4qw1RxvpT_SJT |
+|            | Y3A-XOP5QhB2t_dh8                                                                   |
+| project_id | 504960eb27594515a5c52299e592bdb2                                                    |
+| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                                    |
++------------+-------------------------------------------------------------------------------------+
+```
+asdasd
