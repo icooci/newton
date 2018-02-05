@@ -249,7 +249,9 @@ export OS_IDENTITY_API_VERSION=3
 关闭临时认证机制  
 
 > vi /etc/keystone/keystone-paste.ini
-
+```diff
+- admin_token_auth
+```
 `分别从[pipeline:public_api], [pipeline:admin_api]和[pipeline:api_v3]部分删除admin_token_auth`
 
 取消临时变量  
@@ -265,7 +267,7 @@ openstack --os-auth-url http://controller:35357/v3 \
   --os-username admin \
   token issue
 ```
-服务器返回结果:
+服务器返回结果如下:
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
@@ -279,7 +281,6 @@ openstack --os-auth-url http://controller:35357/v3 \
 +------------+-------------------------------------------------------------------------------------+
 ```
 
-
 验证二: 使用demo请求token  
 
 ```
@@ -290,7 +291,7 @@ openstack --os-auth-url http://controller:5000/v3 \
   --os-username demo \
   token issue
 ```
-服务器返回结果:
+服务器返回结果如下:
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
