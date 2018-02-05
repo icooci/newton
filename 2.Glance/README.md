@@ -98,5 +98,10 @@ password = asd
 flavor = keystone
 [profiler]
 ```
-asd
 
+初始化glance数据库
+> glance-manage db_sync
+
+重启glance服务
+> service glance-registry restart
+> service glance-api restart
