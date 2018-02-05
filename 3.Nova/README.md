@@ -126,8 +126,8 @@ api_servers = http://controller:9292
 |  7 | nova-conductor   | controller | internal | enabled | up    | 2018-02-05T12:55:06.000000 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
 ```
-
-
+  
+  
 Nova部署 - 计算节点
 ---
 
@@ -206,9 +206,10 @@ compute_driver=libvirt.LibvirtDriver
 + virt_type=qemu
 ```
 
-验证操作(在控制节点上操作)
+验证操作
 ---
 
+(在控制节点上操作)
 加载admin变量
 > . admin-openrc
 
