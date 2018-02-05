@@ -139,10 +139,12 @@ export OS_IDENTITY_API_VERSION=3
 
 > unset OS_AUTH_URL OS_PASSWORD  
 
+
 验证操作
 ---
 
-验证一: 使用admin请求token  
+
+1. 使用admin请求token  
 ```bash
 openstack --os-auth-url http://controller:35357/v3 \
   --os-project-domain-name Default \
@@ -165,7 +167,7 @@ openstack --os-auth-url http://controller:35357/v3 \
 +------------+-------------------------------------------------------------------------------------+
 ```
 
-验证二: 使用demo请求token  
+2. 使用demo请求token  
 
 ```
 openstack --os-auth-url http://controller:5000/v3 \
@@ -217,6 +219,8 @@ export OS_IMAGE_API_VERSION=2
 测试申请token
 > . admin-openrc  
 > openstack token issue  
+
+服务器返回结果如下:
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
