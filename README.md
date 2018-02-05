@@ -1,14 +1,15 @@
 # newton
 ## 环境准备
-Ubuntu Server 16.04 LTS  
 
-| 节点  | 地址规划 |
-| ---------- | -----------|
-| Controller Node   | 192.168.1.11   |
-| Compute Node   | 192.168.1.21   |
-| Block Storage Node   | 192.168.1.31   |
-| Object Storage Node 1   | 192.168.1.41   |
-| Object Storage Node 2   | 192.168.1.42   |
+OS: Ubuntu Server 16.04 LTS  
+
+| 节点 | 主机名 | 地址规划 |
+| ---- | ----- | ------- |
+| Controller Node | controller | 192.168.1.11 |
+| Compute Node | compute | 192.168.1.21 |
+| Block Storage Node | block | 192.168.1.31 |
+| Object Storage Node 1 | object1 | 192.168.1.41 |
+| Object Storage Node 2 | object2 | 192.168.1.42 |
 
 网络配置  
 vi /etc/network/interfaces
