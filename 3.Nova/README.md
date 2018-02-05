@@ -25,7 +25,7 @@ exit;
 
 为nova用户分配admin角色
 > openstack role add --project service --user nova admin  
-本条命令无回显
+`本条命令无回显`
 
 创建nova服务实体
 > openstack service create --name nova --description "OpenStack Compute" compute
