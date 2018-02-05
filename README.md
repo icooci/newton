@@ -257,10 +257,13 @@ export OS_IDENTITY_API_VERSION=3
 > unset OS_AUTH_URL OS_PASSWORD
 
 验证一: 使用admin请求token  
-```
+```bash
 openstack --os-auth-url http://controller:35357/v3 \
-  --os-project-domain-name Default --os-user-domain-name Default \
-  --os-project-name admin --os-username admin token issue
+  --os-project-domain-name Default \
+  --os-user-domain-name Default \
+  --os-project-name admin \
+  --os-username admin \
+  token issue
 ```
 
 ```
@@ -281,8 +284,11 @@ openstack --os-auth-url http://controller:35357/v3 \
 
 ```
 openstack --os-auth-url http://controller:5000/v3 \
-  --os-project-domain-name Default --os-user-domain-name Default \
-  --os-project-name demo --os-username demo token issue
+  --os-project-domain-name Default \
+  --os-user-domain-name Default \
+  --os-project-name demo \
+  --os-username demo \
+  token issue
 ```
 
 ```
