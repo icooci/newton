@@ -118,6 +118,7 @@ character-set-server = utf8
 > service memcached restart
 
 2.认证服务
+---
 > mysql -u root -p  
 ```
 CREATE DATABASE keystone;
@@ -125,3 +126,56 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd'
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
 ```
 > apt install keystone  
+> vi keystone.conf 
+```
+[DEFAULT]
+log_dir = /var/log/keystone
+[assignment]
+[auth]
+[cache]
+[catalog]
+[cors]
+[cors.subdomain]
+[credential]
+[database]
+#connection = sqlite:////var/lib/keystone/keystone.db
+connection = mysql+pymysql://keystone:asd@controller/keystone
+[domain_config]
+[endpoint_filter]
+[endpoint_policy]
+[eventlet_server]
+[federation]
+[fernet_tokens]
+[identity]
+[identity_mapping]
+[kvs]
+[ldap]
+[matchmaker_redis]
+[memcache]
+[oauth1]
+[os_inherit]
+[oslo_messaging_amqp]
+[oslo_messaging_notifications]
+[oslo_messaging_rabbit]
+[oslo_messaging_zmq]
+[oslo_middleware]
+[oslo_policy]
+[paste_deploy]
+[policy]
+[profiler]
+[resource]
+[revoke]
+[role]
+[saml]
+[security_compliance]
+[shadow_users]
+[signing]
+[token]
+provider = fernet
+[tokenless_auth]
+[trust]
+[extra_headers]
+Distribution = Ubuntu
+```
+
+asdasd
