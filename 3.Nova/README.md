@@ -131,8 +131,10 @@ api_servers = http://controller:9292
 Nova部署 - 计算节点
 ---
 
+安装nova-compute软件包
 > apt install nova-compute
 
+编辑nova配置文件
 > vi /etc/nova/nova.conf
 
 ```bash
@@ -202,4 +204,25 @@ compute_driver=libvirt.LibvirtDriver
 [libvirt]
 - virt_type=kvm
 + virt_type=qemu
+```
+
+验证操作(在控制节点上操作)
+---
+
+加载admin变量
+> . admin-openrc
+
+查询计算服务
+> openstack compute service list
+
+服务器返回结果如下:
+```
++----+------------------+------------+----------+---------+-------+----------------------------+
+| ID | Binary           | Host       | Zone     | Status  | State | Updated At                 |
++----+------------------+------------+----------+---------+-------+----------------------------+
+|  5 | nova-consoleauth | controller | internal | enabled | up    | 2018-02-05T13:19:27.000000 |
+|  6 | nova-scheduler   | controller | internal | enabled | up    | 2018-02-05T13:19:26.000000 |
+|  7 | nova-conductor   | controller | internal | enabled | up    | 2018-02-05T13:19:27.000000 |
+|  8 | nova-compute     | compute    | nova     | enabled | up    | 2018-02-05T13:19:27.000000 |
++----+------------------+------------+----------+---------+-------+----------------------------+
 ```
