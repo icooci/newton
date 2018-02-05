@@ -1,5 +1,5 @@
 # newton
-## 环境准备
+### 环境准备
 
 OS: Ubuntu Server 16.04 LTS  
 
@@ -62,7 +62,7 @@ vi /etc/hosts
 验证NTP同步信息  
 > chronyc sources
 
-启用openstack repository  
+所有节点启用openstack repository  
 > apt install software-properties-common
 
 > add-apt-repository cloud-archive:newton  
@@ -76,6 +76,6 @@ vi /etc/hosts
 
 > reboot
 
-安装openstackclient  
+所有节点安装openstackclient  
 
 > apt install python-openstackclient
