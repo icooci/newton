@@ -1,4 +1,4 @@
-Nova部署
+Nova部署 - 控制节点
 ---
 
 创建nova数据库
@@ -126,3 +126,75 @@ api_servers = http://controller:9292
 |  7 | nova-conductor   | controller | internal | enabled | up    | 2018-02-05T12:55:06.000000 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
 ```
+
+Nova部署 - 计算节点
+---
+
+> apt install nova-compute
+
+> vi /etc/nova/nova.conf
+
+```bash
+[DEFAULT]
+dhcpbridge_flagfile=/etc/nova/nova.conf
+dhcpbridge=/usr/bin/nova-dhcpbridge
+# log-dir=/var/log/nova
+state_path=/var/lib/nova
+force_dhcp_release=True
+verbose=True
+ec2_private_dns_show_ip=True
+enabled_apis=osapi_compute,metadata
+transport_url = rabbit://openstack:asd@controller
+auth_strategy = keystone
+my_ip = 192.168.1.21
+use_neutron = True
+firewall_driver = nova.virt.firewall.NoopFirewallDriver
+
+[database]
+connection=sqlite:////var/lib/nova/nova.sqlite
+
+[api_database]
+connection=sqlite:////var/lib/nova/nova.sqlite
+
+[oslo_concurrency]
+# lock_path=/var/lock/nova
+lock_path = /var/lib/nova/tmp
+
+[libvirt]
+use_virtio_for_bridges=True
+
+[wsgi]
+api_paste_config=/etc/nova/api-paste.ini
+
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = asd
+
+[vnc]
+enabled = True
+vncserver_listen = 0.0.0.0
+vncserver_proxyclient_address = $my_ip
+novncproxy_base_url = http://controller:6080/vnc_auto.html
+
+[glance]
+api_servers = http://controller:9292
+```
+
+检测硬件虚拟化支持
+
+> egrep -c '(vmx|svm)' /proc/cpuinfo
+
+如果返回结果大于1，则表明此计算节点支持硬件加速虚拟化，不需要额外配置
+
+如果计算节点不支持硬件虚拟化加速，则必须将libvirt由使用kvm改为使用qemu
+
+> vi /etc/nova/nova-compute.conf
+
+
