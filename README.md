@@ -79,3 +79,21 @@ vi /etc/hosts
 所有节点安装openstackclient  
 
 > apt install python-openstackclient
+
+控制节点安装SQL
+>apt install mariadb-server python-pymysql
+
+/etc/mysql/mariadb.conf.d/99-openstack.cnf
+```
+[mysqld]
+bind-address = 192.168.1.11
+
+default-storage-engine = innodb
+innodb_file_per_table
+max_connections = 4096
+collation-server = utf8_general_ci
+character-set-server = utf8
+```
+>service mysql restart
+
+>mysql_secure_installation
