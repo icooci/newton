@@ -127,6 +127,7 @@ api_servers = http://controller:9292
 +----+------------------+------------+----------+---------+-------+----------------------------+
 ```
 
+
 Nova部署 - 计算节点
 ---
 
@@ -192,13 +193,13 @@ api_servers = http://controller:9292
 > egrep -c '(vmx|svm)' /proc/cpuinfo
 
 如果返回结果大于1，则表明此计算节点支持硬件加速虚拟化，不需要额外配置
-否则须将libvirt使用的hypervisor由kvm改为qemu
+否则需要将libvirt使用的hypervisor由kvm改为qemu
 
 > vi /etc/nova/nova-compute.conf
 ```diff
 [DEFAULT]
 compute_driver=libvirt.LibvirtDriver
 [libvirt]
--virt_type=kvm
-+virt_type=qemu
+- virt_type=kvm
++ virt_type=qemu
 ```
