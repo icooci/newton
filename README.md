@@ -259,22 +259,34 @@ export OS_IDENTITY_API_VERSION=3
 > openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name Default --os-user-domain-name Default --os-project-name admin --os-username admin token issue
   
 ```
-+------------+----------------------------------------------------------------------------+
-| Field      | Value                                                                      |
-+------------+----------------------------------------------------------------------------+
-| expires    | 2018-02-05 05:11:35+00:00                                                  |
-| id         | gAAAAABad9l3eBC90O5-VRd6F1DfOHIuogjHYwtSay-                                |
-|            | Wt8ODdF1ZbooqU3NY80zTm5_54i8ZPT7ovKEJ2px-N5MG01nRvfj3knG7JZJdLmVSa0eiUKoRB |
-|            | _j1Qg0c53B4fS1XESrRU9JnIq6xt4iJ7NQzKeFM63RpsL0U5087iD5EXckWm8kiTbo         |
-| project_id | 504960eb27594515a5c52299e592bdb2                                           |
-| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                           |
-+------------+----------------------------------------------------------------------------+
++------------+-------------------------------------------------------------------------------------+
+| Field      | Value                                                                               |
++------------+-------------------------------------------------------------------------------------+
+| expires    | 2018-02-05 05:12:37+00:00                                                           |
+| id         | gAAAAABad9m1ndMN48wZoj2flMPvOXLFo4crVKJe48xiZcqEE_-BOx3e7F7GdHl8Noxamu3cA_AavM3JQqe |
+|            | xaSzpumywkOfwy1kZoIqX5WVmK0H7aGJYvvGEDXKsY829wxvPL0L0Us3nAuShkJrS0DRiiDUzWNIyjElQiV |
+|            | CDjHXjITJ1D0L3-Rg                                                                   |
+| project_id | 504960eb27594515a5c52299e592bdb2                                                    |
+| user_id    | 5c30414ba4f14019ba86e1b5a3985856                                                    |
++------------+-------------------------------------------------------------------------------------+
 ```
 
 
 验证二: 使用demo请求token  
 
-openstack --os-auth-url http://controller:5000/v3 \
-  --os-project-domain-name Default --os-user-domain-name Default \
-  --os-project-name demo --os-username demo token issue
+> openstack --os-auth-url http://controller:5000/v3 --os-project-domain-name Default --os-user-domain-name Default --os-project-name demo --os-username demo token issue
+```
++------------+-------------------------------------------------------------------------------------+
+| Field      | Value                                                                               |
++------------+-------------------------------------------------------------------------------------+
+| expires    | 2018-02-05 05:13:56+00:00                                                           |
+| id         | gAAAAABad9oE9OyDhsFj3hPsGy1yht5cIP-                                                 |
+|            | m65JP3xHiwiJ5_8bVFZAPwsdk3X9zrrFYdcX5KWmbDHzizihPrRU_YAeku86ZPjZKeQlU3dNgpKznC-     |
+|            | XT0ID2LUpLLfQYby15TVfOEO5rz7YYhrayvErAmoYDelRWJXn9ua3r9WyGJjLF42R2_gc               |
+| project_id | 51453ea6df854c6b807ddbfe214bd322                                                    |
+| user_id    | cc3d529c69e34b219270a3145624ae5c                                                    |
++------------+-------------------------------------------------------------------------------------+
+```
+
+
 
