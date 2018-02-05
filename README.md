@@ -182,30 +182,38 @@ provider = fernet
 [extra_headers]
 Distribution = Ubuntu
 ```
-初始化keystone数据库
-> keystone-manage db_sync
-初始化Fernet
+初始化keystone数据库  
+
+> keystone-manage db_sync  
+
+初始化Fernet  
+
 > keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
 > keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
-引导身份认证服务
+
+引导身份认证服务  
+
 > keystone-manage bootstrap --bootstrap-password asd \
   --bootstrap-admin-url http://controller:35357/v3/ \
   --bootstrap-internal-url http://controller:35357/v3/ \
   --bootstrap-public-url http://controller:5000/v3/ \
   --bootstrap-region-id RegionOne
 
-配置apache
+配置apache  
+
 > vi /etc/apache2/apache2.conf
 ```diff
 + ServerName controller
 ```
 
-> service apache2 restart
-删除默认SQLite数据库
+> service apache2 restart  
+
+删除默认SQLite数据库  
+
 > rm -f /var/lib/keystone/keystone.db
 
 配置管理员账户
-```
+```bash
 export OS_USERNAME=admin
 export OS_PASSWORD=asd
 export OS_PROJECT_NAME=admin
