@@ -126,11 +126,11 @@ CREATE DATABASE keystone;
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
 ```
-安装keystone软件包
+安装keystone软件包  
 > apt install keystone  
 
-编辑keystone配置文件
-> vi keystone.conf  
+编辑keystone配置文件  
+> vi /etc/keystone/keystone.conf  
 
 ```bash
 [DEFAULT]
@@ -188,8 +188,8 @@ Distribution = Ubuntu
 
 初始化Fernet  
 
-> keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
-> keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
+> keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone  
+> keystone-manage credential_setup --keystone-user keystone --keystone-group keystone  
 
 引导身份认证服务  
 
