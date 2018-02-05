@@ -50,7 +50,7 @@ vi /etc/hosts
 ```
 > service chrony restart  
 
-其他节点部署NTP服务
+**其他节点部署NTP服务**  
 > apt install chrony
 > vi /etc/chrony/chrony.conf
 ```diff
@@ -97,3 +97,11 @@ character-set-server = utf8
 > service mysql restart
 
 > mysql_secure_installation
+
+**控制节点安装消息队列**  
+
+> apt install rabbitmq-server
+
+> rabbitmqctl add_user openstack asd
+
+> rabbitmqctl set_permissions openstack ".*" ".*" ".*"
