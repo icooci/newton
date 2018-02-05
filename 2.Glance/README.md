@@ -1,4 +1,4 @@
-Glance
+Glance部署
 ---
 
 创建glance数据库
@@ -105,3 +105,28 @@ flavor = keystone
 重启glance服务
 > service glance-registry restart
 > service glance-api restart
+
+验证操作
+---
+
+>. admin-openrc
+
+> wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+
+上传cirros镜像
+```
+openstack image create "cirros" \
+  --file cirros-0.3.4-x86_64-disk.img \
+  --disk-format qcow2 --container-format bare \
+  --public
+```
+查询镜像列表
+> openstack image list
+```
++--------------------------------------+--------+--------+
+| ID                                   | Name   | Status |
++--------------------------------------+--------+--------+
+| 0435e51d-14ec-4668-8414-df3eab1a453a | cirros | active |
++--------------------------------------+--------+--------+
+```
+asd
