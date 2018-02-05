@@ -6,15 +6,15 @@ Nova部署
 > mysql -u root -p
 
 ```
-CREATE DATABASE nova;
 CREATE DATABASE nova_api;
+CREATE DATABASE nova;
 
-GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
-GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'asd';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 
-exit;
+^D
 ```
 
 加载admin变量
@@ -97,8 +97,8 @@ api_servers = http://controller:9292
 ```
 
 初始化nova数据库
-> nova-manage db sync  
 > nova-manage api_db sync  
+> nova-manage db sync  
 
 重启nova服务
 > service nova-api restart  
