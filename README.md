@@ -43,9 +43,19 @@ vi /etc/hosts
 192.168.1.42       object2
 ```
 控制节点部署NTP服务  
-> apt install chrony
-> vi /etc/chrony/chrony.conf
+> apt install chrony  
+> vi /etc/chrony/chrony.conf  
 ```diff
 +allow 192.168.1.0/24
 ```
+> service chrony restart  
+
+其他节点部署NTP服务
+> apt install chrony
+> vi /etc/chrony/chrony.conf
+```diff
+- 注释掉其他内容，只配置
++ server controller iburst
+```
 > service chrony restart
+
