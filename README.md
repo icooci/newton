@@ -222,3 +222,24 @@ export OS_PROJECT_DOMAIN_NAME=Default
 export OS_AUTH_URL=http://controller:35357/v3
 export OS_IDENTITY_API_VERSION=3
 ```
+创建service项目，用于每个服务
+
+> openstack project create --domain default --description "Service Project" service
+
+
+创建demo项目，用于一般权限任务
+
+> openstack project create --domain default --description "Demo Project" demo
+
+创建demo用户
+
+> openstack user create --domain default --password-prompt demo
+
+创建user角色
+
+> openstack role create user
+
+赋予demo用户以user角色
+
+> openstack role add --project demo --user demo user
+本条命令没有无回显
