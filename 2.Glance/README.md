@@ -133,4 +133,3 @@ openstack image create "cirros" \
 | 0435e51d-14ec-4668-8414-df3eab1a453a | cirros | active |
 +--------------------------------------+--------+--------+
 ```
-asd
