@@ -55,7 +55,10 @@ vi /etc/hosts
 > vi /etc/chrony/chrony.conf
 ```diff
 - 注释掉其他内容，只配置
+- pool 2.debian.pool.ntp.org offline iburst
 + server controller iburst
 ```
 > service chrony restart
+验证NTP同步信息  
+> chronyc sources
 
