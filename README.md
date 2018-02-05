@@ -42,3 +42,10 @@ vi /etc/hosts
 # object2
 192.168.1.42       object2
 ```
+控制节点部署NTP服务  
+> apt install chrony
+> vi /etc/chrony/chrony.conf
+```diff
++allow 192.168.1.0/24
+```
+> service chrony restart
