@@ -24,15 +24,14 @@ exit;
 > openstack user create --domain default --password-prompt nova
 
 为nova用户分配admin角色
-> openstack role add --project service --user nova admin
+> openstack role add --project service --user nova admin  
 本条命令无回显
 
 创建nova服务实体
 > openstack service create --name nova --description "OpenStack Compute" compute
 
 创建nova服务API Endpoint
-> openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1/%\(tenant_id\)s
-
+> openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1/%\(tenant_id\)s  
 > openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1/%\(tenant_id\)s  
 > openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1/%\(tenant_id\)s
 
