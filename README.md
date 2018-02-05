@@ -265,7 +265,7 @@ openstack --os-auth-url http://controller:35357/v3 \
   --os-username admin \
   token issue
 ```
-
+服务器返回结果:
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
@@ -290,7 +290,7 @@ openstack --os-auth-url http://controller:5000/v3 \
   --os-username demo \
   token issue
 ```
-
+服务器返回结果:
 ```
 +------------+-------------------------------------------------------------------------------------+
 | Field      | Value                                                                               |
