@@ -71,6 +71,7 @@ vi /etc/hosts
 更新软件包  
 
 > apt-get update && apt-get dist-upgrade
+
 重启以应用新kernel  
 
 > reboot
