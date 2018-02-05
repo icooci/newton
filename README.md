@@ -1,7 +1,7 @@
 # Newton安装部署
 1.环境准备
 ------
-All Node OS: Ubuntu Server 16.04 LTS  
+All Node OS: Ubuntu Server 16.04.3 LTS  
 
 | 节点 | 主机名 | 地址规划 |
 | ---- | ----- | ------- |
