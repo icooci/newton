@@ -35,9 +35,11 @@ exit;
 > openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1/%\(tenant_id\)s  
 > openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1/%\(tenant_id\)s
 
+安装nova软件包
 > apt install nova-api nova-conductor nova-consoleauth nova-novncproxy nova-scheduler
 
-> vi /etc/nova/nova.conf  
+编辑nova配置
+> vi /etc/nova/nova.conf  
 
 ```bash
 [DEFAULT]
