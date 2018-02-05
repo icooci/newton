@@ -62,7 +62,7 @@ vi /etc/hosts
 验证NTP同步信息  
 > chronyc sources
 
-所有节点启用openstack repository  
+**所有节点安装openstack client**  
 > apt install software-properties-common
 
 > add-apt-repository cloud-archive:newton  
@@ -76,7 +76,7 @@ vi /etc/hosts
 
 > reboot
 
-所有节点安装openstackclient  
+安装openstackclient  
 
 > apt install python-openstackclient
 
