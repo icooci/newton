@@ -239,7 +239,7 @@ export OS_IDENTITY_API_VERSION=3
 
 > openstack role create user
 
-赋予demo用户以user角色
+赋予demo用户user角色
 
-> openstack role add --project demo --user demo user
+> openstack role add --project demo --user demo user  
 本条命令没有无回显
