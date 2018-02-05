@@ -24,9 +24,11 @@ log_dir = /var/log/keystone
 [cors]
 [cors.subdomain]
 [credential]
+
 [database]
 # connection = sqlite:////var/lib/keystone/keystone.db
 connection = mysql+pymysql://keystone:asd@controller/keystone
+
 [domain_config]
 [endpoint_filter]
 [endpoint_policy]
@@ -57,8 +59,10 @@ connection = mysql+pymysql://keystone:asd@controller/keystone
 [security_compliance]
 [shadow_users]
 [signing]
+
 [token]
 provider = fernet
+
 [tokenless_auth]
 [trust]
 [extra_headers]
@@ -206,7 +210,7 @@ export OS_IMAGE_API_VERSION=2
 ```
 
 > vi demo-openrc
-```
+```bash
 export OS_PROJECT_DOMAIN_NAME=Default
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_NAME=demo
