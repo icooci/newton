@@ -252,7 +252,7 @@ export OS_IDENTITY_API_VERSION=3
 ```diff
 - admin_token_auth
 ```
-`分别从[pipeline:public_api], [pipeline:admin_api]和[pipeline:api_v3]部分删除**admin_token_auth**`
+`分别从[pipeline:public_api], [pipeline:admin_api]和[pipeline:api_v3]部分删除 admin_token_auth `
 
 取消临时变量  
 
