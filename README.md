@@ -1,5 +1,5 @@
 # Newton安装部署
-环境准备
+1.环境准备
 ------
 OS: Ubuntu Server 16.04 LTS  
 
@@ -111,7 +111,7 @@ character-set-server = utf8
 > apt install memcached python-memcache
 
 > vi /etc/memcached.conf
-```
+```diff
 - -l 127.0.0.1
 + -l 192.168.1.11
 ```
