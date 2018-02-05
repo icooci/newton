@@ -190,3 +190,22 @@ Distribution = Ubuntu
   --bootstrap-internal-url http://controller:35357/v3/ \
   --bootstrap-public-url http://controller:5000/v3/ \
   --bootstrap-region-id RegionOne
+
+> vi /etc/apache2/apache2.conf
+```diff
++ ServerName controller
+```
+
+> service apache2 restart
+
+> rm -f /var/lib/keystone/keystone.db
+
+```
+export OS_USERNAME=admin
+export OS_PASSWORD=asd
+export OS_PROJECT_NAME=admin
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://controller:35357/v3
+export OS_IDENTITY_API_VERSION=3
+```
