@@ -7,6 +7,7 @@ Glance部署
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'asd';
+EXIT;
 ```
 
 加载admin变量
@@ -35,16 +36,20 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'asd';
 [DEFAULT]
 [cors]
 [cors.subdomain]
+
 [database]
 sqlite_db = /var/lib/glance/glance.sqlite
 backend = sqlalchemy
 connection = mysql+pymysql://glance:asd@controller/glance
+
 [glance_store]
 stores = file,http
 default_store = file
 filesystem_store_datadir = /var/lib/glance/images/
+
 [image_format]
 disk_formats = ami,ari,aki,vhd,vhdx,vmdk,raw,qcow2,vdi,iso,root-tar
+
 [keystone_authtoken]
 auth_uri = http://controller:5000
 auth_url = http://controller:35357
@@ -55,6 +60,7 @@ user_domain_name = Default
 project_name = service
 username = glance
 password = asd
+
 [matchmaker_redis]
 [oslo_concurrency]
 [oslo_messaging_amqp]
@@ -63,8 +69,10 @@ password = asd
 [oslo_messaging_zmq]
 [oslo_middleware]
 [oslo_policy]
+
 [paste_deploy]
 flavor = keystone
+
 [profiler]
 [store_type_location_strategy]
 [task]
