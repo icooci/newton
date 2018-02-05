@@ -6,6 +6,7 @@ Keystone部署
 CREATE DATABASE keystone;
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
+exit;
 ```
 安装keystone软件包  
 > apt install keystone  
