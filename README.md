@@ -58,6 +58,6 @@ vi /etc/hosts
 + server controller iburst
 ```
 > service chrony restart  
-验证NTP同步信息  
+ 验证NTP同步信息  
 > chronyc sources
 
