@@ -112,7 +112,8 @@ character-set-server = utf8
 
 > vi /etc/memcached.conf
 ```
--l 192.168.1.11
+- -l 127.0.0.1
++ -l 192.168.1.11
 ```
 > service memcached restart
 
