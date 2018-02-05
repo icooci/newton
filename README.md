@@ -129,7 +129,7 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
 
 > vi keystone.conf  
 
-```
+```bash
 [DEFAULT]
 log_dir = /var/log/keystone
 [assignment]
