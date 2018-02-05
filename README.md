@@ -193,11 +193,11 @@ Distribution = Ubuntu
 
 引导身份认证服务  
 
-> keystone-manage bootstrap --bootstrap-password asd \
+`keystone-manage bootstrap --bootstrap-password asd \
   --bootstrap-admin-url http://controller:35357/v3/ \
   --bootstrap-internal-url http://controller:35357/v3/ \
   --bootstrap-public-url http://controller:5000/v3/ \
-  --bootstrap-region-id RegionOne
+  --bootstrap-region-id RegionOne`
 
 配置apache  
 
