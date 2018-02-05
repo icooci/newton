@@ -126,8 +126,10 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd'
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
 ```
 > apt install keystone  
+
 > vi keystone.conf  
-```bash
+
+```
 [DEFAULT]
 log_dir = /var/log/keystone
 [assignment]
