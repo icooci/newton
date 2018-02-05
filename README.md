@@ -46,7 +46,7 @@ vi /etc/hosts
 > apt install chrony  
 > vi /etc/chrony/chrony.conf  
 ```diff
-+allow 192.168.1.0/24
++ allow 192.168.1.0/24
 ```
 > service chrony restart  
 
@@ -62,3 +62,12 @@ vi /etc/hosts
 验证NTP同步信息  
 > chronyc sources
 
+启用openstack repository
+> apt install software-properties-common
+> add-apt-repository cloud-archive:newton
+[ENTER]
+> apt-get update && apt-get dist-upgrade
+
+> reboot
+
+> apt install python-openstackclient
