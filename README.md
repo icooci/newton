@@ -105,3 +105,14 @@ character-set-server = utf8
 > rabbitmqctl add_user openstack asd
 
 > rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+
+控制节点安装Memcached
+
+> apt install memcached python-memcache
+
+> vi /etc/memcached.conf
+```
+-l 192.168.1.11
+```
+> service memcached restart
+
