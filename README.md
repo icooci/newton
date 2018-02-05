@@ -140,7 +140,7 @@ log_dir = /var/log/keystone
 [cors.subdomain]
 [credential]
 [database]
-#connection = sqlite:////var/lib/keystone/keystone.db
+# connection = sqlite:////var/lib/keystone/keystone.db
 connection = mysql+pymysql://keystone:asd@controller/keystone
 [domain_config]
 [endpoint_filter]
@@ -180,13 +180,9 @@ provider = fernet
 Distribution = Ubuntu
 ```
 
-asdasd
 > keystone-manage db_sync
 
-> su -s /bin/sh -c "keystone-manage db_sync" keystone
-
 > keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
-
 > keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
 
 > keystone-manage bootstrap --bootstrap-password asd \
