@@ -106,3 +106,23 @@ api_servers = http://controller:9292
 > service nova-scheduler restart  
 > service nova-conductor restart  
 > service nova-novncproxy restart  
+
+验证操作
+---
+
+加载admin变量
+> . admin-openrc
+
+查询计算服务
+> openstack compute service list
+
+服务器返回结果如下:
+```
++----+------------------+------------+----------+---------+-------+----------------------------+
+| ID | Binary           | Host       | Zone     | Status  | State | Updated At                 |
++----+------------------+------------+----------+---------+-------+----------------------------+
+|  5 | nova-consoleauth | controller | internal | enabled | up    | 2018-02-05T12:55:06.000000 |
+|  6 | nova-scheduler   | controller | internal | enabled | up    | 2018-02-05T12:55:06.000000 |
+|  7 | nova-conductor   | controller | internal | enabled | up    | 2018-02-05T12:55:06.000000 |
++----+------------------+------------+----------+---------+-------+----------------------------+
+```
