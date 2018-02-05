@@ -117,3 +117,11 @@ character-set-server = utf8
 ```
 > service memcached restart
 
+2.认证服务
+> mysql -u root -p  
+```
+CREATE DATABASE keystone;
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd';
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
+```
+> apt install keystone  
