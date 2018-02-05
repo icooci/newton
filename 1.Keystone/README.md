@@ -144,7 +144,7 @@ export OS_IDENTITY_API_VERSION=3
 ---
 
 
-1. 使用admin请求token  
+1. 使用admin用户请求token  
 ```bash
 openstack --os-auth-url http://controller:35357/v3 \
   --os-project-domain-name Default \
@@ -167,7 +167,7 @@ openstack --os-auth-url http://controller:35357/v3 \
 +------------+-------------------------------------------------------------------------------------+
 ```
 
-2. 使用demo请求token  
+2. 使用demo用户请求token  
 
 ```
 openstack --os-auth-url http://controller:5000/v3 \
@@ -216,8 +216,12 @@ export OS_IDENTITY_API_VERSION=3
 export OS_IMAGE_API_VERSION=2
 ```
 
-测试申请token
+加载admin环境变量  
+
 > . admin-openrc  
+
+申请token  
+
 > openstack token issue  
 
 服务器返回结果如下:
