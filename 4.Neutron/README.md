@@ -1,5 +1,5 @@
-Neutron部署 - 控制节点
----
+## Neutron部署 - 控制节点
+
 创建neutron数据库
 > mysql -u root -p
 ```
@@ -205,8 +205,7 @@ metadata_proxy_shared_secret = asd
 <br />
 <br />
 
-Neutron部署 - 计算节点
----
+## Neutron部署 - 计算节点
 
 安装neutron linuxbridge代理
 
