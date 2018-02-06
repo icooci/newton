@@ -1,5 +1,4 @@
-Horizon部署
----
+## Horizon部署
 
 安装dashboard组件
 > apt install openstack-dashboard
