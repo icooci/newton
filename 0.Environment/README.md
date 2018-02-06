@@ -25,7 +25,8 @@ iface ens3 inet static
 ```
 
 网络名称解析  
-vi /etc/hosts
+> vi /etc/hosts
+
 ```
 # controller
 192.168.1.11       controller
@@ -81,7 +82,7 @@ vi /etc/hosts
 > apt install python-openstackclient
 
 **控制节点安装SQL**
->apt install mariadb-server python-pymysql
+> apt install mariadb-server python-pymysql
 
 > vi /etc/mysql/mariadb.conf.d/99-openstack.cnf
 ```
@@ -96,6 +97,7 @@ character-set-server = utf8
 ```
 > service mysql restart
 
+执行安全设置
 > mysql_secure_installation
 
 **控制节点安装消息队列**  
