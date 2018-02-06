@@ -119,7 +119,7 @@ character-set-server = utf8
 
 2.认证服务
 ---
-创建keystone数据库
+创建keystone数据库  
 > mysql -u root -p  
 ```
 CREATE DATABASE keystone;
