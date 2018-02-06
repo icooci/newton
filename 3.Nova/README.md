@@ -100,7 +100,7 @@ api_servers = http://controller:9292
 初始化nova数据库
 > su -s /bin/sh -c "nova-manage api_db sync" nova  
 > su -s /bin/sh -c "nova-manage db sync" nova  
-> `or nova-manage api_db sync && nova-manage db sync` 
+> or `nova-manage api_db sync && nova-manage db sync` 
 
 重启nova服务
 > service nova-api restart  
