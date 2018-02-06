@@ -29,8 +29,9 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 安装neutron软件包
 > apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
 
+编辑neutron配置文件
 > vi /etc/neutron/neutron.conf
-```
+```bash
 [DEFAULT]
 core_plugin = ml2
 service_plugins =
