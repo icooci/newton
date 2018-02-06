@@ -1,7 +1,8 @@
 部署环境准备
 ------
 
-All Node OS: Ubuntu Server 16.04.3 LTS  
+**系统版本**  
+All Node: Ubuntu Server 16.04.3 LTS  
 
 | 节点 | 主机名 | 地址规划 |
 | ---- | ----- | ------- |
@@ -11,7 +12,7 @@ All Node OS: Ubuntu Server 16.04.3 LTS  
 | Object Storage Node 1 | object1 | 192.168.1.41 |
 | Object Storage Node 2 | object2 | 192.168.1.42 |
 
-网络配置  
+**网络配置**  
 > vi /etc/network/interfaces  
 ```
 auto ens3
@@ -24,10 +25,10 @@ iface ens3 inet static
         dns-nameservers 192.168.1.1
 ```
 
-网络名称解析  
+**网络名称解析**  
 > vi /etc/hosts
 
-```
+```bash
 # controller
 192.168.1.11       controller
 
@@ -71,7 +72,8 @@ iface ens3 inet static
 **所有节点安装openstack client**  
 > apt install software-properties-common
 
-> add-apt-repository cloud-archive:newton  
+添加repository  
+> add-apt-repository cloud-archive:newton  
 [ENTER]
 
 更新软件包  
@@ -105,7 +107,7 @@ character-set-server = utf8
 执行安全设置
 > mysql_secure_installation
 
-**控制节点安装消息队列**  
+**控制节点安装Message queue**  
 
 > apt install rabbitmq-server
 
