@@ -83,3 +83,50 @@ password = asd
 [quotas]
 [ssl]
 ```
+
+配置ml2
+ > vi /etc/neutron/plugins/ml2/ml2_conf.ini
+ ```bash
+ [DEFAULT]
+[ml2]
+type_drivers = flat,vlan
+tenant_network_types =
+mechanism_drivers = linuxbridge
+extension_drivers = port_security
+[ml2_type_flat]
+flat_networks = provider
+[ml2_type_geneve]
+[ml2_type_gre]
+[ml2_type_vlan]
+[ml2_type_vxlan]
+[securitygroup]
+enable_ipset = True
+```
+
+配置linuxbridge
+> vi /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+
+```bash
+[DEFAULT]
+[agent]
+[linux_bridge]
+physical_interface_mappings = provider:ens3
+[securitygroup]
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+[vxlan]
+enable_vxlan = False
+```
+
+配置dhcp agent
+> vi /etc/neutron/dhcp_agent.ini
+
+```bash
+[DEFAULT]
+interface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver
+dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+enable_isolated_metadata = True
+[AGENT]
+```
+
+asd
