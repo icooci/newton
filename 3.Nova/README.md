@@ -193,8 +193,8 @@ api_servers = http://controller:9292
 
 > egrep -c '(vmx|svm)' /proc/cpuinfo
 
-如果返回结果大于1，则表明此计算节点支持硬件加速虚拟化，不需要额外配置
-否则需要将libvirt使用的hypervisor由kvm改为qemu
+如果返回结果大于1，则表明此计算节点支持硬件加速虚拟化，不需要额外配置  
+否则需要将libvirt使用的hypervisor由kvm改为qemu  
 
 > vi /etc/nova/nova-compute.conf
 ```diff
