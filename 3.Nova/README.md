@@ -95,7 +95,7 @@ api_servers = http://controller:9292
 
 ```
 
-`$my_ip为控制节点IP`
+> `$my_ip 为控制节点IP`
 
 初始化nova数据库
 > nova-manage api_db sync  
@@ -190,6 +190,7 @@ novncproxy_base_url = http://controller:6080/vnc_auto.html
 [glance]
 api_servers = http://controller:9292
 ```
+> `$my_ip 为计算节点IP`
 
 检测硬件虚拟化支持
 
