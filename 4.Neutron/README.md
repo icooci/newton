@@ -202,6 +202,8 @@ metadata_proxy_shared_secret = asd
 | d34eb018-be45-4428-9afc-f9aeb561ee73 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 ```
+<br />
+<br />
 
 Neutron部署 - 计算节点
 ---
@@ -287,3 +289,6 @@ password = asd
 > service neutron-linuxbridge-agent restart
 
  
+验证操作
+---
+
