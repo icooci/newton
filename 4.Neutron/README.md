@@ -122,7 +122,7 @@ firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 enable_vxlan = False
 ```
 
-配置dhcp agent
+配置dhcp代理
 > vi /etc/neutron/dhcp_agent.ini
 
 ```bash
@@ -134,18 +134,22 @@ enable_isolated_metadata = True
 ```
 
 ---
-vi /etc/neutron/metadata_agent.ini
+配置metadata代理
+> vi /etc/neutron/metadata_agent.ini
 
-```
+```bash
 [DEFAULT]
 nova_metadata_ip = controller
 metadata_proxy_shared_secret = asd
 [AGENT]
 [cache]
 ```
-vi /etc/nova/nova.conf 
 
-```
+配置nova，添加neutron配置
+
+> vi /etc/nova/nova.conf 
+
+```bash
 ...+
 [neutron]
 url = http://controller:9696
