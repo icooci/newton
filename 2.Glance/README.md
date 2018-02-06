@@ -109,7 +109,7 @@ flavor = keystone
 
 初始化glance数据库
 > su -s /bin/sh -c "glance-manage db_sync" glance  
-> `or glance-manage db_sync`  
+> or `glance-manage db_sync`  
 
 重启glance服务
 > service glance-registry restart
