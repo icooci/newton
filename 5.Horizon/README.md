@@ -347,3 +347,13 @@ COMPRESS_OFFLINE = True
 ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
 
 ```
+
+修改apache wsgi
+> vi /etc/apache2/conf-available/openstack-dashboard.conf
+
+```diff
++ WSGIApplicationGroup %{GLOBAL}
+```
+
+重启web服务
+> service apache2 reload
