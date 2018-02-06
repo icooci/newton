@@ -28,7 +28,7 @@ iface ens3 inet static
 ```
 
 网络名称解析  
-vi /etc/hosts
+> vi /etc/hosts
 ```
 # controller
 192.168.1.11       controller
