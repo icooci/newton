@@ -1,5 +1,4 @@
-Nova部署 - 控制节点
----
+## Nova部署 - 控制节点
 
 创建nova数据库
 
@@ -129,8 +128,7 @@ api_servers = http://controller:9292
 <br />
 <br />
 
-Nova部署 - 计算节点
----
+## Nova部署 - 计算节点
 
 安装nova-compute软件包
 > apt install nova-compute
