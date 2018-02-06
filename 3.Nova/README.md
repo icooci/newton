@@ -95,6 +95,8 @@ api_servers = http://controller:9292
 
 ```
 
+`$my_ip为控制节点IP`
+
 初始化nova数据库
 > nova-manage api_db sync  
 > nova-manage db sync  
