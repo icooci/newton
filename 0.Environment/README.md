@@ -1,16 +1,17 @@
 部署环境准备
 ------
 
-**系统版本**  
-All Node: Ubuntu Server 16.04.3 LTS  
+**系统规划**  
 
-| 节点 | 主机名 | 地址规划 |
+| 节点 | 主机名 | IP地址 |
 | ---- | ----- | ------- |
 | Controller Node | controller | 192.168.1.11 |
 | Compute Node | compute | 192.168.1.21 |
 | Block Storage Node | block | 192.168.1.31 |
 | Object Storage Node 1 | object1 | 192.168.1.41 |
 | Object Storage Node 2 | object2 | 192.168.1.42 |
+
+> All Node OS: Ubuntu Server 16.04.3 LTS
 
 **网络配置**  
 > vi /etc/network/interfaces  
