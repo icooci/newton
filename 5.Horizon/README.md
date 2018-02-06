@@ -1,5 +1,3 @@
-asdasd
-
 Horizon部署
 ---
 
@@ -10,7 +8,8 @@ Horizon部署
 > vi /etc/openstack-dashboard/local_settings.py
 
 配置一(Provide网络-关闭l3服务)
-```
+
+```bash
 # -*- coding: utf-8 -*-
 
 import os
