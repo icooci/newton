@@ -182,20 +182,18 @@ metadata_proxy_shared_secret = asd
 
 
 验证操作
+---
 
 加载admin变量
-# . admin-openrc
-
-# openstack compute service list
+> . admin-openrc
 
 查看neutron扩展的运行情况
-# neutron ext-list
+> neutron ext-list
 
+查看网络组件运行情况
+> openstack network agent list
 
-# openstack network agent list
-
-···
-root@controller:~# openstack network agent list
+```
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 | ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
@@ -203,4 +201,4 @@ root@controller:~# openstack network agent list
 | 73b8299c-9073-42d0-b13d-8986513d15b1 | Linux bridge agent | controller | None              | True  | UP    | neutron-linuxbridge-agent |
 | d34eb018-be45-4428-9afc-f9aeb561ee73 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
-···
+```
