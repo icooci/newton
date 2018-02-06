@@ -23,6 +23,9 @@ iface ens3 inet static
         broadcast 192.168.1.255
         gateway 192.168.1.1
         dns-nameservers 192.168.1.1
+
+auto ens4
+iface ens4 inet manual
 ```
 
 **网络名称解析**  
