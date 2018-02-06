@@ -1,4 +1,4 @@
-Neutron部署
+Neutron部署 - 控制节点
 ---
 创建neutron数据库
 > mysql -u root -p
@@ -202,3 +202,88 @@ metadata_proxy_shared_secret = asd
 | d34eb018-be45-4428-9afc-f9aeb561ee73 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 ```
+
+Neutron部署 - 计算节点
+---
+
+安装neutron linuxbridge代理
+
+> apt install neutron-linuxbridge-agent
+
+配置neutron
+> vi /etc/neutron/neutron.conf
+
+```bash
+[DEFAULT]
+core_plugin = ml2
+transport_url = rabbit://openstack:asd@controller
+auth_strategy = keystone
+[agent]
+root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+[cors]
+[cors.subdomain]
+[database]
+connection = sqlite:////var/lib/neutron/neutron.sqlite
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = neutron
+password = asd
+[matchmaker_redis]
+[nova]
+[oslo_concurrency]
+[oslo_messaging_amqp]
+[oslo_messaging_notifications]
+[oslo_messaging_rabbit]
+[oslo_messaging_zmq]
+[oslo_middleware]
+[oslo_policy]
+[qos]
+[quotas]
+[ssl]
+```
+
+配置linuxbridge
+> vi /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+
+```bash
+[DEFAULT]
+[agent]
+[linux_bridge]
+physical_interface_mappings = provider:ens3
+[securitygroup]
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+[vxlan]
+enable_vxlan = False
+```
+
+配置nova
+> vi /etc/nova/nova.conf
+
+```bash
+...+
+[neutron]
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = asd
+```
+
+重启nova-compute服务
+> service nova-compute restart
+
+重启neutron服务
+> service neutron-linuxbridge-agent restart
+
+ 
