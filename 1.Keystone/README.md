@@ -70,7 +70,8 @@ Distribution = Ubuntu
 ```
 初始化keystone数据库  
 
-> keystone-manage db_sync  
+> su -s /bin/sh -c "keystone-manage db_sync" keystone  
+> `keystone-manage db_sync`
 
 初始化Fernet  
 
