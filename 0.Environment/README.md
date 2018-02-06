@@ -74,8 +74,8 @@ iface ens3 inet static
 > apt install software-properties-common
 
 添加repository  
-> add-apt-repository cloud-archive:newton  
-[ENTER]
+> add-apt-repository cloud-archive:newton  
+> [ENTER]
 
 更新软件包  
 
