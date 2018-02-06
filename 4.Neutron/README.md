@@ -172,10 +172,35 @@ metadata_proxy_shared_secret = asd
 > service nova-api restart
 
 重启neutron服务
-> service neutron-server restart
-> service neutron-linuxbridge-agent restart
-> service neutron-dhcp-agent restart
-> service neutron-metadata-agent restart
+> service neutron-server restart  
+> service neutron-linuxbridge-agent restart  
+> service neutron-dhcp-agent restart  
+> service neutron-metadata-agent restart  
 
+重启l3代理服务(视网络类型而定)
 >  service neutron-l3-agent restart
 
+
+验证操作
+
+加载admin变量
+# . admin-openrc
+
+# openstack compute service list
+
+查看neutron扩展的运行情况
+# neutron ext-list
+
+
+# openstack network agent list
+
+···
+root@controller:~# openstack network agent list
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| 0b38231e-216f-4d62-97cd-423943131eaf | Metadata agent     | controller | None              | True  | UP    | neutron-metadata-agent    |
+| 73b8299c-9073-42d0-b13d-8986513d15b1 | Linux bridge agent | controller | None              | True  | UP    | neutron-linuxbridge-agent |
+| d34eb018-be45-4428-9afc-f9aeb561ee73 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+···
