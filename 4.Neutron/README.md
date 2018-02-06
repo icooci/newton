@@ -26,6 +26,10 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 > openstack endpoint create --region RegionOne network internal http://controller:9696  
 > openstack endpoint create --region RegionOne network admin http://controller:9696  
 
+
+网络类型一: Provider网络配置
+---
+
 安装neutron软件包
 > apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
 
@@ -129,4 +133,30 @@ enable_isolated_metadata = True
 [AGENT]
 ```
 
-asd
+---
+vi /etc/neutron/metadata_agent.ini
+
+```
+[DEFAULT]
+nova_metadata_ip = controller
+metadata_proxy_shared_secret = asd
+[AGENT]
+[cache]
+```
+vi /etc/nova/nova.conf 
+
+```
+...+
+[neutron]
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = asd
+service_metadata_proxy = True
+metadata_proxy_shared_secret = asd
+```
