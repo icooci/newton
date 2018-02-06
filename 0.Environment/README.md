@@ -43,22 +43,27 @@ iface ens3 inet static
 # object2
 192.168.1.42       object2
 ```
-**控制节点部署NTP服务**  
-> apt install chrony  
-> vi /etc/chrony/chrony.conf  
+**所有节点部署NTP服务**  
+
+安装chrony软件包  
+> apt install chrony  
+
+修改配置文件  
+> vi /etc/chrony/chrony.conf  
+
+控制节点配置:  
 ```diff
 + allow 192.168.1.0/24
 ```
-> service chrony restart  
 
-**其他节点部署NTP服务**  
-> apt install chrony  
-> vi /etc/chrony/chrony.conf
+其他节点配置:  
 ```diff
 - pool 2.debian.pool.ntp.org offline iburst
 + server controller iburst
 ```
-> service chrony restart  
+
+重启服务  
+> service chrony restart  
 
 验证NTP同步信息  
 > chronyc sources
