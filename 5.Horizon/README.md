@@ -6,7 +6,7 @@
 配置dashboard
 > vi /etc/openstack-dashboard/local_settings.py
 
-> 网络类型: Self-Service
+`网络类型: Self-Service`
 ---
 
 ```bash
