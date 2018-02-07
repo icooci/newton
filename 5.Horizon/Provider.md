@@ -6,7 +6,8 @@
 配置dashboard
 > vi /etc/openstack-dashboard/local_settings.py
 
-配置一(Provide网络-关闭l3服务)
+#### 网络类型: Provider (关闭L3服务)
+---
 
 ```bash
 # -*- coding: utf-8 -*-
