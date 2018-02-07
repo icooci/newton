@@ -102,13 +102,17 @@ type_drivers = flat,vlan,vxlan
 tenant_network_types = vxlan
 mechanism_drivers = linuxbridge,l2population
 extension_drivers = port_security
+
 [ml2_type_flat]
 flat_networks = provider
+
 [ml2_type_geneve]
 [ml2_type_gre]
 [ml2_type_vlan]
+
 [ml2_type_vxlan]
 vni_ranges = 1:1000
+
 [securitygroup]
 enable_ipset = True
 ```
@@ -122,11 +126,14 @@ enable_ipset = True
 ```bash
 [DEFAULT]
 [agent]
+
 [linux_bridge]
 physical_interface_mappings = provider:ens3
+
 [securitygroup]
 enable_security_group = True
 firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+
 [vxlan]
 enable_vxlan = True
 local_ip = 192.168.1.11
@@ -245,12 +252,15 @@ metadata_proxy_shared_secret = asd
 core_plugin = ml2
 transport_url = rabbit://openstack:asd@controller
 auth_strategy = keystone
+
 [agent]
 root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
 [cors]
 [cors.subdomain]
+
 [database]
 connection = sqlite:////var/lib/neutron/neutron.sqlite
+
 [keystone_authtoken]
 auth_uri = http://controller:5000
 auth_url = http://controller:35357
@@ -261,6 +271,7 @@ user_domain_name = Default
 project_name = service
 username = neutron
 password = asd
+
 [matchmaker_redis]
 [nova]
 [oslo_concurrency]
@@ -281,11 +292,14 @@ password = asd
 ```bash
 [DEFAULT]
 [agent]
+
 [linux_bridge]
 physical_interface_mappings = provider:ens3
+
 [securitygroup]
 enable_security_group = True
 firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+
 [vxlan]
 enable_vxlan = True
 local_ip = 192.168.1.21
