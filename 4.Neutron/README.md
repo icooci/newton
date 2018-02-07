@@ -133,7 +133,7 @@ local_ip = 192.168.1.11
 l2_population = True
 ```
 
-> `local_ip需设置为用于overlay的网络接口IP`
+> `local_ip设置为用于overlay的控制节点接口IP`
 
 配置L3代理
 > vi /etc/neutron/l3_agent.ini
@@ -287,8 +287,12 @@ physical_interface_mappings = provider:ens3
 enable_security_group = True
 firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 [vxlan]
-enable_vxlan = False
+enable_vxlan = True
+local_ip = 192.168.1.21
+l2_population = True
 ```
+
+> `local_ip设置为用于overlay的计算节点接口IP`
 
 配置nova增加neutron配置
 > vi /etc/nova/nova.conf
