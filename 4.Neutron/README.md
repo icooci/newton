@@ -28,7 +28,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 
 <br />
 
-网络类型二: Self-service 网络配置
+网络类型: Self-service 网络
 ---
 
 安装neutron软件包
