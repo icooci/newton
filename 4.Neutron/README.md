@@ -26,6 +26,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 > openstack endpoint create --region RegionOne network internal http://controller:9696  
 > openstack endpoint create --region RegionOne network admin http://controller:9696  
 
+<br />
 
 网络类型二: Self-service 网络配置
 ---
@@ -112,7 +113,7 @@ vni_ranges = 1:1000
 enable_ipset = True
 ```
 
-PS: 配置完ml2插件之后，删除type_drivers中的值可能导致数据库不一致
+> PS: `配置完ml2插件之后，删除type_drivers中的值可能导致数据库不一致`
 
 
 配置linuxbridge
@@ -132,6 +133,7 @@ local_ip = 192.168.1.11
 l2_population = True
 ```
 
+> `local_ip需设置为用于overlay的网络接口IP`
 
 配置L3代理
 > vi /etc/neutron/l3_agent.ini
@@ -153,9 +155,10 @@ enable_isolated_metadata = True
 [AGENT]
 ```
 
-
 <br />
+
 ---
+
 配置metadata代理
 > vi /etc/neutron/metadata_agent.ini
 
