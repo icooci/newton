@@ -27,18 +27,21 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 > openstack endpoint create --region RegionOne network admin http://controller:9696  
 
 
-网络类型一: Provider网络配置
+网络类型二: Self-service 网络配置
 ---
 
 安装neutron软件包
-> apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
-
+> apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent
+  
 编辑neutron配置文件
+
 > vi /etc/neutron/neutron.conf
+
 ```bash
 [DEFAULT]
 core_plugin = ml2
-service_plugins =
+service_plugins = router
+allow_overlapping_ips = True
 transport_url = rabbit://openstack:asd@controller
 auth_strategy = keystone
 notify_nova_on_port_status_changes = True
@@ -90,12 +93,13 @@ password = asd
 
 配置ml2
  > vi /etc/neutron/plugins/ml2/ml2_conf.ini
- ```bash
- [DEFAULT]
+ 
+```bash
+[DEFAULT]
 [ml2]
-type_drivers = flat,vlan
-tenant_network_types =
-mechanism_drivers = linuxbridge
+type_drivers = flat,vlan,vxlan
+tenant_network_types = vxlan
+mechanism_drivers = linuxbridge,l2population
 extension_drivers = port_security
 [ml2_type_flat]
 flat_networks = provider
@@ -103,9 +107,13 @@ flat_networks = provider
 [ml2_type_gre]
 [ml2_type_vlan]
 [ml2_type_vxlan]
+vni_ranges = 1:1000
 [securitygroup]
 enable_ipset = True
 ```
+
+PS: 配置完ml2插件之后，删除type_drivers中的值可能导致数据库不一致
+
 
 配置linuxbridge
 > vi /etc/neutron/plugins/ml2/linuxbridge_agent.ini
@@ -119,7 +127,19 @@ physical_interface_mappings = provider:ens3
 enable_security_group = True
 firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 [vxlan]
-enable_vxlan = False
+enable_vxlan = True
+local_ip = 192.168.1.11
+l2_population = True
+```
+
+
+配置L3代理
+> vi /etc/neutron/l3_agent.ini
+
+```bash
+[DEFAULT]
+interface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver
+[AGENT]
 ```
 
 配置dhcp代理
@@ -133,6 +153,8 @@ enable_isolated_metadata = True
 [AGENT]
 ```
 
+
+<br />
 ---
 配置metadata代理
 > vi /etc/neutron/metadata_agent.ini
