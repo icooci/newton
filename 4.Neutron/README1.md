@@ -26,8 +26,9 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 > openstack endpoint create --region RegionOne network internal http://controller:9696  
 > openstack endpoint create --region RegionOne network admin http://controller:9696  
 
+<br />
 
-网络类型一: Provider网络配置
+网络类型: Provider网络配置
 ---
 
 安装neutron软件包
@@ -35,6 +36,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 
 编辑neutron配置文件
 > vi /etc/neutron/neutron.conf
+
 ```bash
 [DEFAULT]
 core_plugin = ml2
@@ -90,6 +92,7 @@ password = asd
 
 配置ml2
  > vi /etc/neutron/plugins/ml2/ml2_conf.ini
+ 
  ```bash
  [DEFAULT]
 [ml2]
@@ -132,8 +135,10 @@ dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 enable_isolated_metadata = True
 [AGENT]
 ```
+<br />
 
 ---
+
 配置metadata代理
 > vi /etc/neutron/metadata_agent.ini
 
