@@ -161,12 +161,11 @@ dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 enable_isolated_metadata = True
 [AGENT]
 ```
-
 <br />
 
 ---
 ---
-
+<br />
 配置metadata代理
 > vi /etc/neutron/metadata_agent.ini
 
