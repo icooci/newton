@@ -113,7 +113,7 @@ vni_ranges = 1:1000
 enable_ipset = True
 ```
 
-> PS: `配置完ml2插件之后，删除type_drivers中的值可能导致数据库不一致`
+> `配置完ml2插件之后，删除type_drivers中的值可能导致数据库不一致`
 
 
 配置linuxbridge
