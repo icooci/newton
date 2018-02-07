@@ -166,7 +166,8 @@ enable_isolated_metadata = True
 ---
 ---
 <br />
-配置metadata代理
+
+配置metadata代理  
 > vi /etc/neutron/metadata_agent.ini
 
 ```bash
