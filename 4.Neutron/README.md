@@ -202,7 +202,7 @@ metadata_proxy_shared_secret = asd
 > service neutron-dhcp-agent restart  
 > service neutron-metadata-agent restart  
 
-重启l3代理服务(视网络类型而定)
+重启l3代理服务
 >  service neutron-l3-agent restart
 
 
@@ -222,9 +222,10 @@ metadata_proxy_shared_secret = asd
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 | ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
-| 0b38231e-216f-4d62-97cd-423943131eaf | Metadata agent     | controller | None              | True  | UP    | neutron-metadata-agent    |
-| 73b8299c-9073-42d0-b13d-8986513d15b1 | Linux bridge agent | controller | None              | True  | UP    | neutron-linuxbridge-agent |
-| d34eb018-be45-4428-9afc-f9aeb561ee73 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
+| 2309c922-3b2d-4c17-b6e1-66fd330ae6ae | Linux bridge agent | controller | None              | True  | UP    | neutron-linuxbridge-agent |
+| 7e69dfe4-c930-48c0-8c88-8ec4ce707e2a | L3 agent           | controller | nova              | True  | UP    | neutron-l3-agent          |
+| ba99135b-fe8c-43cf-bbfd-5a3f5fad5141 | Metadata agent     | controller | None              | True  | UP    | neutron-metadata-agent    |
+| bd94020f-d8e4-444b-b3de-e5a5c0ad9d80 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 ```
 <br />
