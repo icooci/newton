@@ -13,7 +13,7 @@
 #   under the License.
 #
 
-"""Identity v2.0 User action implementations"""
+"""Identity v2.0 User action Implementations"""
 
 import logging
 
