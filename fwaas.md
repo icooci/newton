@@ -8,8 +8,7 @@
 service_plugins = firewall
 
 [service_providers]
-service_provider = FIREWALL:Iptables:neutron.agent.linux.iptables_
-firewall.OVSHybridIptablesFirewallDriver:default
+service_provider = FIREWALL:Iptables:neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver:default
 
 [fwaas]
 agent_version = v1
@@ -17,11 +16,12 @@ driver = iptables
 enabled = True
 ```
 
+>目前测试不配置service_providers依然能正常运作
+
 > vi /etc/neutron/fwaas_driver.ini
 ```
 [fwaas]
-driver = neutron_fwaas.services.firewall.drivers.linux.iptables_
-fwaas.IptablesFwaasDriver
+driver = neutron_fwaas.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver
 enabled = True
 ```
 
