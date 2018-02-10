@@ -112,7 +112,7 @@ flavor = keystone
 > or `glance-manage db_sync`  
 
 重启glance服务
-> service glance-registry restart
+> service glance-registry restart  
 > service glance-api restart
 
 验证操作
