@@ -13,7 +13,8 @@
 > All Node OS: Ubuntu Server 16.04.3 LTS
 
 **网络配置**  
-> vi /etc/network/interfaces  
+> vi /etc/network/interfaces
+
 ```
 auto ens3
 iface ens3 inet static
@@ -56,10 +57,10 @@ controller / compute / block
 **所有节点部署NTP服务**  
 
 安装chrony软件包  
-> apt install chrony  
+> apt install chrony
 
 修改配置文件  
-> vi /etc/chrony/chrony.conf  
+> vi /etc/chrony/chrony.conf
 
 控制节点配置:  
 ```diff
@@ -73,7 +74,7 @@ controller / compute / block
 ```
 
 重启服务  
-> service chrony restart  
+> service chrony restart
 
 验证NTP同步信息  
 > chronyc sources
