@@ -28,6 +28,14 @@ auto ens4
 iface ens4 inet manual
 ```
 
+**网络配置**  
+> vi /etc/hostname
+```
+controller
+compute
+block
+```
+
 **网络名称解析**  
 > vi /etc/hosts
 
