@@ -208,6 +208,8 @@ compute_driver=libvirt.LibvirtDriver
 - virt_type=kvm
 + virt_type=qemu
 ```
+重启nova-compute服务
+> service nova-compute restart
 
 验证操作
 ---
