@@ -31,9 +31,7 @@ iface ens4 inet manual
 **网络配置**  
 > vi /etc/hostname
 ```
-controller
-compute
-block
+controller / compute / block
 ```
 
 **网络名称解析**  
