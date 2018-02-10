@@ -1,7 +1,7 @@
 ## Keystone部署
 
 创建keystone数据库
-> mysql -u root -p  
+> mysql -u root -p
 ```
 CREATE DATABASE keystone;
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'asd';
@@ -9,10 +9,10 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'asd';
 exit;
 ```
 安装keystone软件包  
-> apt install keystone  
+> apt install keystone
 
 编辑keystone配置文件  
-> vi /etc/keystone/keystone.conf  
+> vi /etc/keystone/keystone.conf
 
 ```bash
 [DEFAULT]
@@ -70,7 +70,7 @@ Distribution = Ubuntu
 ```
 初始化keystone数据库  
 
-> su -s /bin/sh -c "keystone-manage db_sync" keystone  
+> su -s /bin/sh -c "keystone-manage db_sync" keystone
 > or `keystone-manage db_sync`
 
 初始化Fernet  
