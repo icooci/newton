@@ -13,7 +13,7 @@ GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 
-^D
+EXIT;
 ```
 
 加载admin变量
@@ -38,7 +38,7 @@ GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'asd';
 > apt install nova-api nova-conductor nova-consoleauth nova-novncproxy nova-scheduler
 
 编辑nova配置
-> vi /etc/nova/nova.conf  
+> vi /etc/nova/nova.conf
 
 ```bash
 [DEFAULT]
