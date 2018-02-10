@@ -29,7 +29,7 @@ auto ens4
 iface ens4 inet manual
 ```
 
-**网络配置**  
+**主机名配置**  
 > vi /etc/hostname
 ```
 controller / compute / block
