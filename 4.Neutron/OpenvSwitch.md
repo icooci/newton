@@ -226,3 +226,102 @@ metadata_proxy_shared_secret = asd
 | bffb2f7c-38cb-4589-b84c-94af0eed4862 | L3 agent           | controller | nova              | True  | UP    | neutron-l3-agent          |
 +--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
 ```
+
+## Neutron OVS部署 - 计算节点
+
+安装neutron linuxbridge代理
+> apt install neutron-openvswitch-agent
+```
+[DEFAULT]
+core_plugin = ml2
+transport_url = rabbit://openstack:asd@controller
+auth_strategy = keystone
+[agent]
+root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+[cors]
+[cors.subdomain]
+[database]
+connection = sqlite:////var/lib/neutron/neutron.sqlite
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = neutron
+password = asd
+[matchmaker_redis]
+[nova]
+[oslo_concurrency]
+[oslo_messaging_amqp]
+[oslo_messaging_notifications]
+[oslo_messaging_rabbit]
+[oslo_messaging_zmq]
+[oslo_middleware]
+[oslo_policy]
+[qos]
+[quotas]
+[ssl]
+```
+
+
+vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
+```
+[DEFAULT]
+[agent]
+tunnel_types = vxlan,gre
+l2_population = True
+[ovs]
+local_ip = 192.168.1.21
+[securitygroup]
+```
+
+> `local_ip设置为用于overlay的计算节点接口IP`
+
+> vi /etc/nova/nova.conf
+```
+...+
+[neutron]
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = asd
+```
+重启nova-compute服务
+> service nova-compute restart
+
+重启neutron及OVS服务
+> service openvswitch-switch restart
+> service neutron-openvswitch-agent restart
+
+验证操作
+---
+
+在控制节点上进行验证操作
+
+加载admin变量
+. admin-openrc
+
+查看网络组件运行情况
+
+> openstack network agent list
+
+```
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| 3651645f-596f-4012-8b49-c6b2a9480d20 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
+| 991709fe-0de5-4a60-a00f-56c2f7fa5437 | Metadata agent     | controller | None              | True  | UP    | neutron-metadata-agent    |
+| be6e09fe-7f86-47d2-a046-7f402e5f0336 | Open vSwitch agent | controller | None              | True  | UP    | neutron-openvswitch-agent |
+| bffb2f7c-38cb-4589-b84c-94af0eed4862 | L3 agent           | controller | nova              | True  | UP    | neutron-l3-agent          |
+| f4f0b972-fa78-4442-b18d-e946ffe70373 | Open vSwitch agent | compute    | None              | True  | UP    | neutron-openvswitch-agent |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+```
+
