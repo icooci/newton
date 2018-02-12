@@ -5,10 +5,8 @@
 >  mysql -u root -p
 ```
 CREATE DATABASE cinder;
-
 GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' IDENTIFIED BY 'asd';
 GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'asd';
-
 EXIT;
 ```
 加载admin变量
