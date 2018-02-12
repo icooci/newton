@@ -119,6 +119,7 @@ enable_ipset = True
 创建OVS桥接口
 
 > ovs-vsctl add-br br-provider
+PS: `如果服务启动时没有匹配到接口，将中止进程`
 
 配置openvswitch
 > vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
@@ -133,4 +134,24 @@ bridge_mappings = provider:br-provider
 local_ip = 192.168.1.11
 [securitygroup]
 firewall_driver = iptables_hybrid
+```
+
+配置L3代理
+vi /etc/neutron/l3_agent.ini
+```
+[DEFAULT]
+interface_driver = openvswitch
+external_network_bridge =
+[AGENT]
+```
+
+配置DHCP代理
+vi /etc/neutron/dhcp_agent.ini
+
+```
+[DEFAULT]
+interface_driver = openvswitch
+dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+enable_isolated_metadata = True
+[AGENT]
 ```
