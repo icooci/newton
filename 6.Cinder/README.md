@@ -18,7 +18,7 @@ EXIT;
 > openstack user create --domain default --password-prompt cinder
 
 为cinder用户分配admin角色
-> openstack role add --project service --user cinder admin
+> openstack role add --project service --user cinder admin  
 > `本条命令无回显`
 
 创建cinder/cinderv2服务实体
