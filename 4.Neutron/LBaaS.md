@@ -5,7 +5,7 @@
 
 编辑neutron_lbaas配置
 > vi /etc/neutron/neutron_lbaas.conf
-```
+```bash
 [DEFAULT]
 [certificates]
 [quotas]
@@ -16,7 +16,7 @@ service_provider = LOADBALANCERV2:Haproxy:neutron_lbaas.drivers.haproxy.plugin_d
 
 编辑lbaas_agent配置
 > vi /etc/neutron/lbaas_agent.ini
-```
+```bash
 [DEFAULT]
 device_driver = neutron_lbaas.drivers.haproxy.namespace_driver.HaproxyNSDriver
 interface_driver = openvswitch
@@ -31,12 +31,14 @@ user_group = haproxy
 运行lbaasv2
 > neutron-lbaasv2-agent --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/lbaas_agent.ini
 
-> 经测试服务会自动运行
+> PS: `经测试服务会自动运行，无需手动加载`
 
 重启服务以生效
+```bash
 service neutron-server restart
 service neutron-dhcp-agent restart
 service neutron-metadata-agent restart
 service openvswitch-switch restart
 service neutron-openvswitch-agent restart
 service neutron-l3-agent restart
+```
