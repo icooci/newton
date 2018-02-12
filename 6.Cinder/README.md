@@ -165,7 +165,7 @@ lock_path = /var/lib/cinder/tmp
 
 > `$my_ip 为存储节点管理IP`
 
-重启块存储服务
+重启存储服务
 > service tgt restart  
 > service cinder-volume restart  
 
@@ -177,5 +177,15 @@ lock_path = /var/lib/cinder/tmp
 
 > . admin-openrc
 
+查询volume服务
+> openstack volume service list
 
+```
++------------------+------------+------+---------+-------+----------------------------+
+| Binary           | Host       | Zone | Status  | State | Updated At                 |
++------------------+------------+------+---------+-------+----------------------------+
+| cinder-scheduler | controller | nova | enabled | up    | 2018-02-12T10:24:57.000000 |
+| cinder-volume    | block@lvm  | nova | enabled | up    | 2018-02-12T10:25:01.000000 |
++------------------+------------+------+---------+-------+----------------------------+
+```
 
