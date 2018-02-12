@@ -167,3 +167,14 @@ lock_path = /var/lib/cinder/tmp
 重启块存储服务
 > service tgt restart  
 > service cinder-volume restart  
+
+<br />
+
+## 验证操作
+
+加载admin变量
+
+> . admin-openrc
+
+
+
