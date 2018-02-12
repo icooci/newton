@@ -1,4 +1,4 @@
-## Cinder部署
+## Cinder部署 - 控制节点
 
 创建cinder数据库
 
