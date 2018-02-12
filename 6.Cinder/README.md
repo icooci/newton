@@ -38,7 +38,7 @@ EXIT;
 安装cinder软件包
 > apt install cinder-api cinder-scheduler
 
-编辑nova配置
+编辑cinder配置
 > vi /etc/cinder/cinder.conf
 ```bash
 [DEFAULT]
@@ -72,17 +72,21 @@ password = asd
 [oslo_concurrency]
 lock_path = /var/lib/cinder/tmp
 ```
-$my_ip 为控制节点管理IP
+> `$my_ip 为控制节点管理IP`
 
-
-vi /etc/nova/nova.conf
+添加nova配置
+>vi /etc/nova/nova.conf
 ```bash
 ..+
 [cinder]
 os_region_name = RegionOne
 ```
 
+重启nova-api服务
+
 > service nova-api restart
 
-> service cinder-scheduler restart
-> service cinder-api restart
+重启cinder服务
+
+> service cinder-scheduler restart  
+> service cinder-api restart  
