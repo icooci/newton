@@ -35,3 +35,54 @@ EXIT;
 > openstack endpoint create --region RegionOne volumev2 internal http://controller:8776/v2/%\(tenant_id\)s  
 > openstack endpoint create --region RegionOne volumev2 admin http://controller:8776/v2/%\(tenant_id\)s  
 
+安装cinder软件包
+> apt install cinder-api cinder-scheduler
+
+编辑nova配置
+> vi /etc/cinder/cinder.conf
+```bash
+[DEFAULT]
+rootwrap_config = /etc/cinder/rootwrap.conf
+api_paste_confg = /etc/cinder/api-paste.ini
+iscsi_helper = tgtadm
+volume_name_template = volume-%s
+volume_group = cinder-volumes
+verbose = True
+auth_strategy = keystone
+state_path = /var/lib/cinder
+lock_path = /var/lock/cinder
+volumes_dir = /var/lib/cinder/volumes
+transport_url = rabbit://openstack:asd@controller
+my_ip = 192.168.1.11
+
+[database]
+connection = mysql+pymysql://cinder:asd@controller/cinder
+
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = cinder
+password = asd
+
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+```
+$my_ip 为控制节点管理IP
+
+
+vi /etc/nova/nova.conf
+```bash
+..+
+[cinder]
+os_region_name = RegionOne
+```
+
+> service nova-api restart
+
+> service cinder-scheduler restart
+> service cinder-api restart
