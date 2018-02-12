@@ -204,3 +204,25 @@ metadata_proxy_shared_secret = asd
 > service openvswitch-switch restart  
 > service neutron-openvswitch-agent restart  
 
+
+验证操作
+---
+
+加载admin变量
+>. admin-openrc
+
+查看neutron扩展的运行情况
+> neutron ext-list
+
+查看网络组件运行情况
+> openstack network agent list
+```
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| ID                                   | Agent Type         | Host       | Availability Zone | Alive | State | Binary                    |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+| 3651645f-596f-4012-8b49-c6b2a9480d20 | DHCP agent         | controller | nova              | True  | UP    | neutron-dhcp-agent        |
+| 991709fe-0de5-4a60-a00f-56c2f7fa5437 | Metadata agent     | controller | None              | True  | UP    | neutron-metadata-agent    |
+| be6e09fe-7f86-47d2-a046-7f402e5f0336 | Open vSwitch agent | controller | None              | True  | UP    | neutron-openvswitch-agent |
+| bffb2f7c-38cb-4589-b84c-94af0eed4862 | L3 agent           | controller | nova              | True  | UP    | neutron-l3-agent          |
++--------------------------------------+--------------------+------------+-------------------+-------+-------+---------------------------+
+```
