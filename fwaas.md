@@ -48,3 +48,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     ...
 }
 ```
+
+重启服务以生效
+> service neutron-server restart
+> service neutron-l3-agent restart
