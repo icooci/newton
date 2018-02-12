@@ -138,7 +138,7 @@ firewall_driver = iptables_hybrid
 PS: `local_ip设置为用于overlay的控制节点接口IP`
 
 配置L3代理
-vi /etc/neutron/l3_agent.ini
+> vi /etc/neutron/l3_agent.ini
 ```
 [DEFAULT]
 interface_driver = openvswitch
@@ -147,7 +147,7 @@ external_network_bridge =
 ```
 
 配置DHCP代理
-vi /etc/neutron/dhcp_agent.ini
+> vi /etc/neutron/dhcp_agent.ini
 
 ```
 [DEFAULT]
@@ -195,12 +195,12 @@ metadata_proxy_shared_secret = asd
 > service nova-api restart
 
 重启neutron及OVS服务
-> service neutron-server restart
-> service neutron-linuxbridge-agent restart
-> service neutron-dhcp-agent restart
-> service neutron-metadata-agent restart
-> service neutron-l3-agent restart
+> service neutron-server restart  
+> service neutron-linuxbridge-agent restart  
+> service neutron-dhcp-agent restart  
+> service neutron-metadata-agent restart  
+> service neutron-l3-agent restart  
 
-> service openvswitch-switch restart
-> service neutron-openvswitch-agent restart
+> service openvswitch-switch restart  
+> service neutron-openvswitch-agent restart  
 
