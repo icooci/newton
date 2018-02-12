@@ -177,7 +177,7 @@ lock_path = /var/lib/cinder/tmp
 
 > . admin-openrc
 
-查询volume服务
+验证volume服务
 > openstack volume service list
 
 ```
