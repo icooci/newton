@@ -119,7 +119,7 @@ enable_ipset = True
 创建OVS桥接口
 
 > ovs-vsctl add-br br-provider  
-> `如果服务启动时没有匹配到接口，将中止进程`
+> `如果服务启动时未匹配到mapping接口，将中止进程`
 
 配置openvswitch
 > vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
@@ -156,8 +156,10 @@ dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 enable_isolated_metadata = True
 [AGENT]
 ```
+<br />
 
 ---
+<br />
 
 配置metadata代理
 
