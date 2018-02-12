@@ -21,7 +21,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'asd';
 创建neutron服务实体
 > openstack service create --name neutron --description "OpenStack Networking" network
 
-创建neutron服务APT Endpoint
+创建neutron服务API Endpoint
 > openstack endpoint create --region RegionOne network public http://controller:9696  
 > openstack endpoint create --region RegionOne network internal http://controller:9696  
 > openstack endpoint create --region RegionOne network admin http://controller:9696  
