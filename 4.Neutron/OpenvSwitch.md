@@ -99,7 +99,7 @@ password = asd
 ```bash
 [DEFAULT]
 [ml2]
-type_drivers = flat,vlan,vxlan
+type_drivers = local,flat,vlan,gre,vxlan
 tenant_network_types = vxlan
 mechanism_drivers = openvswitch,l2population
 extension_drivers = port_security
@@ -107,9 +107,30 @@ extension_drivers = port_security
 flat_networks = provider
 [ml2_type_geneve]
 [ml2_type_gre]
+tunnel_id_ranges = 500:1000
 [ml2_type_vlan]
+network_vlan_ranges = provider:2001:3000
 [ml2_type_vxlan]
 vni_ranges = 1:1000
 [securitygroup]
 enable_ipset = True
+```
+
+创建OVS桥接口
+
+> ovs-vsctl add-br br-provider
+
+配置openvswitch
+> vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
+ 
+```
+[DEFAULT]
+[agent]
+tunnel_types = vxlan,gre
+l2_population = True
+[ovs]
+bridge_mappings = provider:br-provider
+local_ip = 192.168.1.11
+[securitygroup]
+firewall_driver = iptables_hybrid
 ```
