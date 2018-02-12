@@ -33,7 +33,7 @@ enabled = True
 extensions = fwaas
 ```
 
-创建fwaas表
+更新数据库
 
 > neutron-db-manage --subproject neutron-fwaas upgrade head
 
@@ -50,5 +50,5 @@ OPENSTACK_NEUTRON_NETWORK = {
 ```
 
 重启服务以生效
-> service neutron-server restart
+> service neutron-server restart  
 > service neutron-l3-agent restart
