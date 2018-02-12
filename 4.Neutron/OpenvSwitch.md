@@ -118,7 +118,7 @@ enable_ipset = True
 
 创建OVS桥接口
 
-> ovs-vsctl add-br br-provider
+> ovs-vsctl add-br br-provider  
 PS: `如果服务启动时没有匹配到接口，将中止进程`
 
 配置openvswitch
@@ -135,6 +135,7 @@ local_ip = 192.168.1.11
 [securitygroup]
 firewall_driver = iptables_hybrid
 ```
+PS: `local_ip设置为用于overlay的控制节点接口IP`
 
 配置L3代理
 vi /etc/neutron/l3_agent.ini
@@ -155,3 +156,51 @@ dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
 enable_isolated_metadata = True
 [AGENT]
 ```
+
+---
+
+配置metadata代理
+
+> vi /etc/neutron/metadata_agent.ini
+```
+[DEFAULT]
+nova_metadata_ip = controller
+metadata_proxy_shared_secret = asd
+[AGENT]
+[cache]
+```
+
+配置nova使用neutron
+> vi /etc/nova/nova.conf
+```
+...+
+[neutron]
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = asd
+service_metadata_proxy = True
+metadata_proxy_shared_secret = asd
+```
+
+初始化neutron数据库
+> su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
+
+重启nova-api服务
+> service nova-api restart
+
+重启neutron及OVS服务
+> service neutron-server restart
+> service neutron-linuxbridge-agent restart
+> service neutron-dhcp-agent restart
+> service neutron-metadata-agent restart
+> service neutron-l3-agent restart
+
+> service openvswitch-switch restart
+> service neutron-openvswitch-agent restart
+
