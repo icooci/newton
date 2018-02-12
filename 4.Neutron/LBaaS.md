@@ -38,7 +38,8 @@ user_group = haproxy
 service neutron-server restart
 service neutron-dhcp-agent restart
 service neutron-metadata-agent restart
+service neutron-l3-agent restart
+
 service openvswitch-switch restart
 service neutron-openvswitch-agent restart
-service neutron-l3-agent restart
 ```
