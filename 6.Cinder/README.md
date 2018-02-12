@@ -72,6 +72,9 @@ lock_path = /var/lib/cinder/tmp
 ```
 > `$my_ip 为控制节点管理IP`
 
+初始化数据库
+> su -s /bin/sh -c "cinder-manage db sync" cinder
+
 添加nova配置
 >vi /etc/nova/nova.conf
 ```bash
