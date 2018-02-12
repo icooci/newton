@@ -1,4 +1,4 @@
-## 部署LBaaS v2
+## LBaaS v2 部署
 
 安装neutron-lbaasv2软件包
 > apt install neutron-lbaasv2-agent
