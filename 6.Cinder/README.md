@@ -90,3 +90,14 @@ os_region_name = RegionOne
 
 > service cinder-scheduler restart  
 > service cinder-api restart  
+
+
+## Cinder部署 - 存储节点
+
+安装cinder-volume软件包
+> apt install cinder-volume
+
+vi /etc/cinder/cinder.conf
+
+
+
