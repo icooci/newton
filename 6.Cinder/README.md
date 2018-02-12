@@ -112,7 +112,7 @@ devices {
 ...
 filter = [ "a/sda/", "r/.*/"]
 ```
-> `只允许/dev/sda，过滤其他所有dev`  
+> 只允许/dev/sda，过滤其他所有dev  
 > `PS: 如果OS所在磁盘上使用了LVM，则同样必须在此添加`  
 
 安装cinder-volume软件包
@@ -161,6 +161,8 @@ iscsi_helper = tgtadm
 [oslo_concurrency]
 lock_path = /var/lib/cinder/tmp
 ```
+
+> `$my_ip 为存储节点管理IP`
 
 重启块存储服务
 > service tgt restart  
