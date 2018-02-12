@@ -91,6 +91,8 @@ os_region_name = RegionOne
 > service cinder-scheduler restart  
 > service cinder-api restart  
 
+<br />
+<br />
 
 ## Cinder部署 - 存储节点
 
