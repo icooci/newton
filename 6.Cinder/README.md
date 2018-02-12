@@ -96,10 +96,62 @@ os_region_name = RegionOne
 
 ## Cinder部署 - 存储节点
 
+
+> apt install lvm2
+
+> pvcreate /dev/sda
+
+> vgcreate cinder-volumes /dev/sda
+
+> vi /etc/lvm/lvm.conf
+```
+devices {
+...
+filter = [ "a/sda/", "r/.*/"]
+```
+
 安装cinder-volume软件包
 > apt install cinder-volume
 
-vi /etc/cinder/cinder.conf
 
+> vi /etc/cinder/cinder.conf
+```bash
+[DEFAULT]
+rootwrap_config = /etc/cinder/rootwrap.conf
+api_paste_confg = /etc/cinder/api-paste.ini
+iscsi_helper = tgtadm
+volume_name_template = volume-%s
+volume_group = cinder-volumes
+verbose = True
+auth_strategy = keystone
+state_path = /var/lib/cinder
+lock_path = /var/lock/cinder
+volumes_dir = /var/lib/cinder/volumes
+transport_url = rabbit://openstack:asd@controller
+my_ip = 192.168.1.31
+enabled_backends = lvm
+glance_api_servers = http://controller:9292
 
+[database]
+connection = mysql+pymysql://cinder:asd@controller/cinder
 
+[keystone_authtoken]
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = cinder
+password = asd
+
+[lvm]
+volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
+volume_group = cinder-volumes
+iscsi_protocol = iscsi
+iscsi_helper = tgtadm
+
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+```
