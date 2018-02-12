@@ -17,15 +17,16 @@ EXIT;
 > openstack user create --domain default --password-prompt neutron
 
 为neutron用户分配admin角色
-> openstack role add --project service --user neutron admin
+> openstack role add --project service --user neutron admin  
 > `本条命令无回显`
 
 创建neutron服务实体
 > openstack service create --name neutron --description "OpenStack Networking" network
 
 创建neutron服务API Endpoint
-> openstack endpoint create --region RegionOne network public http://controller:9696
-> openstack endpoint create --region RegionOne network internal http://controller:9696
-> openstack endpoint create --region RegionOne network admin http://controller:9696
+> openstack endpoint create --region RegionOne network public http://controller:9696  
+> openstack endpoint create --region RegionOne network internal http://controller:9696  
+> openstack endpoint create --region RegionOne network admin http://controller:9696  
 
+<br />
 ## 网络类型: Self-service 网络
