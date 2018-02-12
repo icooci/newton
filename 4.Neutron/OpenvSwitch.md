@@ -119,7 +119,7 @@ enable_ipset = True
 创建OVS桥接口
 
 > ovs-vsctl add-br br-provider  
-PS: `如果服务启动时没有匹配到接口，将中止进程`
+> `如果服务启动时没有匹配到接口，将中止进程`
 
 配置openvswitch
 > vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
@@ -135,7 +135,7 @@ local_ip = 192.168.1.11
 [securitygroup]
 firewall_driver = iptables_hybrid
 ```
-PS: `local_ip设置为用于overlay的控制节点接口IP`
+> `local_ip设置为用于overlay的控制节点接口IP`
 
 配置L3代理
 > vi /etc/neutron/l3_agent.ini
@@ -266,8 +266,8 @@ password = asd
 [ssl]
 ```
 
-
-vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
+配置openvswitch
+> vi /etc/neutron/plugins/ml2/openvswitch_agent.ini
 ```
 [DEFAULT]
 [agent]
@@ -280,6 +280,7 @@ local_ip = 192.168.1.21
 
 > `local_ip设置为用于overlay的计算节点接口IP`
 
+配置nova使用neutron
 > vi /etc/nova/nova.conf
 ```
 ...+
@@ -294,23 +295,22 @@ project_name = service
 username = neutron
 password = asd
 ```
+
 重启nova-compute服务
-> service nova-compute restart
+> service nova-compute restart  
 
 重启neutron及OVS服务
-> service openvswitch-switch restart
-> service neutron-openvswitch-agent restart
+> service openvswitch-switch restart  
+> service neutron-openvswitch-agent restart  
 
 验证操作
 ---
 
 在控制节点上进行验证操作
-
 加载admin变量
-. admin-openrc
+> . admin-openrc
 
 查看网络组件运行情况
-
 > openstack network agent list
 
 ```
