@@ -112,14 +112,15 @@ devices {
 ...
 filter = [ "a/sda/", "r/.*/"]
 ```
-只允许/dev/sda，过滤其他所有dev
-PS: 如果OS所在磁盘上使用了LVM，则同样必须在此添加
+> `只允许/dev/sda，过滤其他所有dev`  
+> `PS: 如果OS所在磁盘上使用了LVM，则同样必须在此添加`  
 
 安装cinder-volume软件包
 > apt install cinder-volume
 
 编辑cinder配置
 > vi /etc/cinder/cinder.conf
+
 ```bash
 [DEFAULT]
 rootwrap_config = /etc/cinder/rootwrap.conf
@@ -160,3 +161,7 @@ iscsi_helper = tgtadm
 [oslo_concurrency]
 lock_path = /var/lib/cinder/tmp
 ```
+
+重启块存储服务
+> service tgt restart  
+> service cinder-volume restart  
