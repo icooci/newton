@@ -96,24 +96,29 @@ os_region_name = RegionOne
 
 ## Cinder部署 - 存储节点
 
-
+安装LVM软件包(大部分发行版已包含)
 > apt install lvm2
 
+创建 Physical Volume
 > pvcreate /dev/sda
 
+创建 Volume Group 
 > vgcreate cinder-volumes /dev/sda
 
+配置LVM过滤器
 > vi /etc/lvm/lvm.conf
-```
+```bash
 devices {
 ...
 filter = [ "a/sda/", "r/.*/"]
 ```
+只允许/dev/sda，过滤其他所有dev
+PS: 如果OS所在磁盘上使用了LVM，则同样必须在此添加
 
 安装cinder-volume软件包
 > apt install cinder-volume
 
-
+编辑cinder配置
 > vi /etc/cinder/cinder.conf
 ```bash
 [DEFAULT]
