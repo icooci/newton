@@ -97,7 +97,7 @@ os_region_name = RegionOne
 
 ## Cinder部署 - 存储节点
 
-安装LVM软件包(大部分发行版已包含)
+安装LVM软件包
 > apt install lvm2
 
 创建 Physical Volume
