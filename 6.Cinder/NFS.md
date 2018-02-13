@@ -1,6 +1,6 @@
 ## NFS Volume Provider
 
-安装nfs软件
+安装NFS软件
 > apt install nfs-common
 
 在cinder中添加NFS配置
@@ -55,7 +55,7 @@ lock_path = /var/lib/cinder/tmp
 
 配置NFS连接信息
 > vi /etc/cinder/nfs_shares 
-192.168.1.55:/zz
+`192.168.1.x:/zz`
 
 
 
