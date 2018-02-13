@@ -55,7 +55,8 @@ lock_path = /var/lib/cinder/tmp
 
 配置NFS连接信息
 > vi /etc/cinder/nfs_shares 
-`192.168.1.x:/zz`
-
+```
+192.168.1.x:/zz
+```
 
 
