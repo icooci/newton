@@ -33,8 +33,8 @@ service nova-scheduler restart
 service nova-spiceproxy restart
 ```
 
-计算节点配置
----
+### 计算节点配置
+
 配置nova
 > vi /etc/nova/nova.conf 
 ```bash
