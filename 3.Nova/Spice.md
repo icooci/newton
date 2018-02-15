@@ -1,8 +1,7 @@
 
 ## Spice部署
 
-控制节点配置
----
+### 控制节点配置
 
 安装nova-spiceproxy
 > apt install nova-spiceproxy spice-html5
@@ -25,16 +24,25 @@ html5proxy_base_url=http://192.168.1.11:6082/spice_auto.html
 keymap=en-us
 ```
 
+重启nova服务
+```
+service nova-api restart
+service nova-conductor restart
+service nova-consoleauth restart
+service nova-scheduler restart
+service nova-spiceproxy restart
+```
+
 计算节点配置
 ---
-
+配置nova
 > vi /etc/nova/nova.conf 
 ```bash
 [DEFAULT]
 vnc_enabled = False
 
 #[spice]
-#enabled = True
+#enabled = True####################################
 #html5proxy_base_url = http://controller:6082/spice_auto.html
 #keymap = en-us
 #server_listen = 0.0.0.0
@@ -49,3 +57,7 @@ server_listen=0.0.0.0
 server_proxyclient_address=192.168.1.21
 ```
 
+重启nova-compute服务
+```
+service nova-compute restart
+```
