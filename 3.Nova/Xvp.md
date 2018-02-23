@@ -15,9 +15,11 @@
 ..+
 xvpvncproxy_base_url = http://controller:6081/console
 ```
+qweqwe
 
-
-![image](https://github.com/icooci/newton/edit/master/3.Nova/xvp.png)
+![image](https://github.com/icooci/newton/tree/master/3.Nova/xvp.png)
 icooci/newton/master/3.Nova/xvp.png
+
+https://github.com/icooci/newton/tree/master/3.Nova/xvp.png
 https://github.com/icooci/newton/edit/master/3.Nova/xvp.png
 newton/3.Nova/xvp.png
