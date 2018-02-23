@@ -1,11 +1,11 @@
 ## xvpvnc部署
 
-控制节点
+**控制节点**
 
 安装ova-xvpvncproxy软件包	
 > apt install nova-xvpvncproxy
 
-计算节点
+**计算节点**
 
 修改nova配置
 > vi /etc/nova/nova.conf
